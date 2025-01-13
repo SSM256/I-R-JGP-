@@ -13,98 +13,131 @@
             height: 300px;
             width: 900%;
         }
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            height: 35px;
+        }
+        #naslov{
+            font-size: 25px;
+            padding-top: 4px;
+            margin: 0;
+        }
+        #profil{
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+          
+        }
+        #natpis a{
+            color: white;
+            text-decoration: none;
+            padding-right: 5px;
+        }
+        #profilna img{
+            width: 30px; /* Slika zauzima 100% širine kontejnera */
+            height: 30px; /* Slika zauzima 100% visine kontejnera */
+            object-fit: cover;
+        }
+        h1 {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        #titlePlaceholder {
+            display: block;
+            text-align: center;
+            margin-left: 50%;
+            transform: translate(-50%);
+            color: rgb(0, 0, 0);
+            /* text-shadow: -4px 4px 8px #535A73; */
+            border-radius: 20px;
+            font-size: 25px;
+            width: 90%;
+        }
+        #mejn {
+            padding: 0 1rem;
+        }
+        .znamenitost {
+            display: flex;
+            margin: 0.5rem;
+            background: linear-gradient(to right,#ffffff7a,#89ccf183 ), rgba(0,0,0,0.2);
+            border-radius: 1rem;
+            height: 7rem;
+            box-shadow: 0px 0px 12px 2px rgba(128, 128, 128, 0.523);
+
+        }
+        .SectionImages{
+            width: auto;
+            height: 100%;
+            object-fit: cover;
+            border-top-left-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+        }
+        .SectionDesc {
+            padding: 5px 1rem;
+            font-size: 11px;
+        }
+        .SectionTitle {
+            color: white;
+            text-align: right;
+            margin-bottom: 5px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .SectionText {
+            text-align: justify;
+        }
+        
     </style>
 </head>
 <body>
     <header>
-        <h1>Javni Gradski Prevoz Sarajevo</h1>
-        <nav>
-            <ul>
-                <li><a href="/index.html">Početna</a></li>
-                <li><a href="/linije.html">Gradske i Prigradske Linije</a></li>
-                <li><a href="/stajalista.html">Autobuska Stajališta</a></li>
-                <li><a href="/red-voznje.html">Red Vožnje</a></li>
-                <li><a href="/znamenitosti.html">Znamenitosti</a></li>
-                <li><a href="/profil.html">Moj Profil</a></li>
-            </ul>
+        <h1 id="naslov">JGP Sarajevo</h1>
+        <nav id = "profil">   
+           <div id="natpis"> <a href="/index.html">Nazad</a></div> 
+           <div id="profilna"><a href="/profil.html"><img src="img/home.png" ></a></div>
+
         </nav>
     </header>
 
-    <main>
-        <section id="intro">
-            <h2>Dobrodošli u aplikaciju za gradski prevoz Sarajeva!</h2>
-            <p>Izaberite opcije ispod za više informacija.</p>
+    <h1 id = "titlePlaceholder">Znamenitosti</h1>
+    <main id = "mejn">
+        <section class = "znamenitost">
+            <img class = "SectionImages" src="/img/vijecnica.jpeg" alt="VijecnicaImage">
+            <div class = "SectionDesc">
+                <div class = "SectionTitle"> Vijećnica </div>
+                <div class = "SectionText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus harum nobis modi tempore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus harum nobis modi tempore </div>
+            </div>
         </section>
-
-        <section id="linije">
-            <h2>Gradske i Prigradske Linije</h2>
-            <p>Ovde će biti prikazan pregled svih linija.</p>
+        <section class = "znamenitost">
+            <img class = "SectionImages" src="/img/sebilj.jpg" alt="VijecnicaImage">
+            <div class = "SectionDesc">
+                <div class = "SectionTitle"> Sebilj </div>
+                <div class = "SectionText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus harum nobis modi tempore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus harum nobis modi tempore </div>
+            </div>
         </section>
-
-        <section id="stajalista">
-            <h2>Autobuska Stajališta</h2>
-            <p>Lista svih stajališta u gradu.</p>
+        <section class = "znamenitost">
+            <img class = "SectionImages" src="/img/vecnaVatra.jpg" alt="VijecnicaImage">
+            <div class = "SectionDesc">
+                <div class = "SectionTitle"> Vječna vatra </div>
+                <div class = "SectionText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus harum nobis modi tempore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus harum nobis modi tempore </div>
+            </div>
         </section>
-
-        <section id="red-voznje">
-            <h2>Red Vožnje</h2>
-            <p>Detaljan pregled redova vožnje.</p>
-        </section>
-
-        <section id="znamenitosti">
-            <h2>Znamenitosti</h2>
-            <div id="map">Mapa se trenutno učitava...</div>
-        </section>
-
-        <section id="profil">
-            <h2>Moj Profil</h2>
-            <p>Upravljajte svojim profilom i kupite kartu.</p>
+        <section class = "znamenitost">
+            <img class = "SectionImages" src="/img/zicara.jpeg" alt="VijecnicaImage">
+            <div class = "SectionDesc">
+                <div class = "SectionTitle"> Žičara Trebević </div>
+                <div class = "SectionText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus harum nobis modi tempore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus harum nobis modi tempore </div>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Javni Gradski Prevoz Sarajevo</p>
-    </footer>
+   
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            
-            const map = L.map('map').setView([43.8563, 18.4131], 13); // Sarajevo coordinates
-
-            // Add OpenStreetMap tiles
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '© OpenStreetMap contributors'
-            }).addTo(map);
-
-            // Add bus stops as markers
-            const busStops = [
-                { lat: 43.8599, lng: 18.4328, name: 'Vijećnica' },
-                { lat: 43.860001, lng: 18.431400, name: 'Baščaršija' },
-                { lat: 43.859734, lng: 18.425302, name: 'Katedrala' },
-                { lat: 43.858907, lng: 18.419840, name: 'Banka' },
-                { lat: 43.858635, lng: 18.413778, name: 'Park' },
-                { lat: 43.8556094, lng: 18.408310, name: 'Marijin dvor' },
-                { lat: 43.855615, lng: 18.397652, name: 'Kampus' },
-                { lat: 43.854128, lng: 18.391920, name: 'Pofalići' },
-                { lat: 43.852613, lng: 18.384698, name: 'Socijalno' },
-                { lat: 43.8515551, lng: 18.378341, name: 'Dolac Malta' },
-                { lat: 43.850493, lng: 18.372020, name: 'Čengić Vila' },
-                { lat: 43.849267, lng: 18.366295, name: 'Otoka Okretnica' }
-            ];
-
-
-            busStops.forEach(stop => {
-                L.marker([stop.lat, stop.lng]).addTo(map)
-                    .bindPopup(`<b>${stop.name}</b>`);
-            });
-
-            // Draw route line
-            const route = busStops.map(stop => [stop.lat, stop.lng]);
-
-            L.polyline(route, { color: 'blue' }).addTo(map)
-                .bindPopup("Ruta autobusa");
-            });
+        
     </script>
 </body>
 </html>
