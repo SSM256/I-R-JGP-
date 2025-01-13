@@ -12,7 +12,7 @@
         body { 
             margin: 0;
             padding: 0;
-            font-family: "Lato", serif;
+            font-family: Arial, Helvetica, sans-serif;
             position: relative; /* Omogućava pozicioniranje pseudo-elementa */
             overflow: hidden; 
         }
@@ -35,7 +35,7 @@
             display: flex;
             flex-direction: row;
             justify-content: space-around;
-            height: 6%;
+            height: 35px;
         }
 
 
@@ -146,11 +146,12 @@
         #gridvju div {
             width: 35%;                /* Svaki element zauzima približno polovinu širine */
             aspect-ratio: 1;           /* Održava kvadratni oblik */
-            background-color:rgba(237, 237, 237, 0.5); /* Svijetlo plava boja za primjer */
+            
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 16px;
+            font-size: 15px;
+            font-weight: 800;
             color: white;
             border-radius: 10px;       /* Zaobljene ivice za ljepši izgled */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Blaga sjena */
@@ -183,7 +184,18 @@
             border-radius: 25px;
             cursor: pointer;
             margin-top: 30px;
+
+           
+        
         }
+
+
+        #kupikartu a{
+            color:white;
+            font-weight: 700;
+            font-size: 20px;
+            text-decoration: none;
+        }       
         .ikonica img {
             width: 60px;
             height: 60px;
@@ -197,11 +209,20 @@
             text-decoration: none;
 
         }
-        .naziv {
-            display: flex;
-            justify-content: space-around;
-            text-decoration: none;
+        .ikonica{
+            background: linear-gradient(#ffffff7a,#89ccf183 ), rgba(0,0,0,0.2);
+            
         }
+        .naziv {
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            
+            
+    
+        }
+       
+      
 
         /* Responsivnost za manje uređaje */
         @media (max-width: 600px) {
@@ -233,7 +254,7 @@
         <h1 id="naslov">JGP Sarajevo</h1>
         <nav id = "profil">   
            <div id="natpis"> <a href="/profil.html">Moj Profil</a></div> 
-           <div id="profilna"><img src="img/avatar.png"></div>
+           <div id="profilna"><a href="/profil.html"><img src="img/avatar.png" ></a></div>
 
         </nav>
     </header>
@@ -242,7 +263,7 @@
        
 
         <div class="container">
-            <h1 id="dobrodosli">Dobrodošli u sistem javnog prijevoza</h1>
+            <h1 id="dobrodosli">Dobrodošli u sistem javnog prevoza</h1>
             
             <!-- Pretraživač za linije -->
             <div class="search-option">
@@ -276,7 +297,7 @@
             <div class = "ikonica">
                 <a href="/red-voznje.html">
                     <img src="/img/schdjule.png" alt="ScheduleIkonica">
-                    <div class = "naziv">Red Vožnje</div>
+                    <div class = "naziv">Red vožnje</div>
                 </a>
             </div><div class = "ikonica">
                 <a href="/znamenitosti.html">
@@ -290,7 +311,7 @@
     </div>
 
     <div id="kupovina">
-        <button id="kupikartu">Kupi kartu</button>
+        <button id="kupikartu"><a href="/kupovina.html">Kupi kartu</a></button>
     </div>
 
     <script>

@@ -5,27 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javni Gradski Prevoz Sarajevo - Moj Profil</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+
+   
+    height: 100vh;
+    }
+
+.profile-container {
+    width: 90%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-header {
+    margin-bottom: 20px;
+}
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid #4c7caf;
+}
+
+.profile-name {
+    font-size: 22px;
+    margin: 5px 0;
+    color: #333;
+}
+
+.profile-info {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.profile-info p {
+    font-size: 18px;
+    color: #555;
+    margin: 10px 0;
+}
+
+#profil{
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+          
+        }
+        #natpis a{
+            color: white;
+            text-decoration: none;
+            padding-right: 5px;
+        }
+        #profilna img{
+            width: 30px; /* Slika zauzima 100% širine kontejnera */
+            height: 30px; /* Slika zauzima 100% visine kontejnera */
+            object-fit: cover;
+        }
+ #naslov{
+            font-size: 25px;
+            padding-top: 4px;
+            margin: 0;
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            height: 35px;
+        }
+
+
+
+
+    </style>
 </head>
 <body>
     <header>
-        <h1>Javni Gradski Prevoz Sarajevo</h1>
-        <nav>
-            <ul>
-                <li><a href="/index.html">Početna</a></li>
-                <li><a href="/linije.html">Gradske i Prigradske Linije</a></li>
-                <li><a href="/stajalista.html">Autobuska Stajališta</a></li>
-                <li><a href="/red-voznje.html">Red Vožnje</a></li>
-                <li><a href="/znamenitosti.html">Znamenitosti</a></li>
-                <li><a href="/profil.html">Moj Profil</a></li>
-            </ul>
+        <h1 id="naslov">JGP Sarajevo</h1>
+        <nav id = "profil">   
+           <div id="natpis"> <a href="/profil.html">Moj Profil</a></div> 
+           <div id="profilna"><a href="/profil.html"><img src="img/avatar.png" ></a></div>
+
         </nav>
     </header>
 
     <main>
         <section>
             <h2>Moj Profil</h2>
-            <p>Upravljajte svojim profilom i kupite kartu.</p>
         </section>
+        <div class="profile-container">
+            <div class="profile-header">
+                <img src="profilna-slika.jpg" alt="Profilna slika" class="profile-picture">
+                <h1 class="profile-name">Ime: Amar</h1>
+                <h1 class="profile-name">Prezime: Muharemović</h1>
+            </div>
+            <div class="profile-info">
+                <p><strong>Adresa stanovanja:</strong> Mostar, BiH</p>
+                <p><strong>Kategorija:</strong> Studentski</p>
+                <p><strong>Zona prevoza:</strong> Zona 1</p>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -33,3 +125,4 @@
     </footer>
 </body>
 </html>
+
