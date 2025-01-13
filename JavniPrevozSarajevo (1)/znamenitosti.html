@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javni Gradski Prevoz Sarajevo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="script.js" defer></script>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Javni Gradski Prevoz Sarajevo</h1>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Početna</a></li>
+                <li><a href="/linije.html">Gradske i Prigradske Linije</a></li>
+                <li><a href="/stajalista.html">Autobuska Stajališta</a></li>
+                <li><a href="/red-voznje.html">Red Vožnje</a></li>
+                <li><a href="/znamenitosti.html">Znamenitosti</a></li>
+                <li><a href="/profil.html">Moj Profil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="intro">
+            <h2>Dobrodošli u aplikaciju za gradski prevoz Sarajeva!</h2>
+            <p>Izaberite opcije ispod za više informacija.</p>
+        </section>
+
+        <section id="linije">
+            <h2>Gradske i Prigradske Linije</h2>
+            <p>Ovde će biti prikazan pregled svih linija.</p>
+        </section>
+
+        <section id="stajalista">
+            <h2>Autobuska Stajališta</h2>
+            <p>Lista svih stajališta u gradu.</p>
+        </section>
+
+        <section id="red-voznje">
+            <h2>Red Vožnje</h2>
+            <p>Detaljan pregled redova vožnje.</p>
+        </section>
+
+        <section id="znamenitosti">
+            <h2>Znamenitosti</h2>
+            <div id="map">Mapa se trenutno učitava...</div>
+        </section>
+
+        <section id="profil">
+            <h2>Moj Profil</h2>
+            <p>Upravljajte svojim profilom i kupite kartu.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Javni Gradski Prevoz Sarajevo</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            
+            const map = L.map('map').setView([43.8563, 18.4131], 13); // Sarajevo coordinates
+
+            // Add OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Add bus stops as markers
+            const busStops = [
+                { lat: 43.8599, lng: 18.4328, name: 'Vijećnica' },
+                { lat: 43.860001, lng: 18.431400, name: 'Baščaršija' },
+                { lat: 43.859734, lng: 18.425302, name: 'Katedrala' },
+                { lat: 43.858907, lng: 18.419840, name: 'Banka' },
+                { lat: 43.858635, lng: 18.413778, name: 'Park' },
+                { lat: 43.8556094, lng: 18.408310, name: 'Marijin dvor' },
+                { lat: 43.855615, lng: 18.397652, name: 'Kampus' },
+                { lat: 43.854128, lng: 18.391920, name: 'Pofalići' },
+                { lat: 43.852613, lng: 18.384698, name: 'Socijalno' },
+                { lat: 43.8515551, lng: 18.378341, name: 'Dolac Malta' },
+                { lat: 43.850493, lng: 18.372020, name: 'Čengić Vila' },
+                { lat: 43.849267, lng: 18.366295, name: 'Otoka Okretnica' }
+            ];
+
+
+            busStops.forEach(stop => {
+                L.marker([stop.lat, stop.lng]).addTo(map)
+                    .bindPopup(`<b>${stop.name}</b>`);
+            });
+
+            // Draw route line
+            const route = busStops.map(stop => [stop.lat, stop.lng]);
+
+            L.polyline(route, { color: 'blue' }).addTo(map)
+                .bindPopup("Ruta autobusa");
+            });
+    </script>
+</body>
+</html>

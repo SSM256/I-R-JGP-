@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javni Gradski Prevoz Sarajevo - Početna</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+        /* Postavljanje pozadinske slike */
+    
+        body { 
+            margin: 0;
+            padding: 0;
+            font-family: "Lato", serif;
+            position: relative; /* Omogućava pozicioniranje pseudo-elementa */
+            overflow: hidden; 
+        }
+        body::before {
+            content: ''; /* Dodaj pseudo-element */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1500px;
+            background-image: url('/img/sarajevo.jpg'); /* URL slike */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 1; /* Postavi željenu opacitet */
+            z-index: -1; /* Postavi sloj iza ostalog sadržaja */
+        }
+
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            height: 6%;
+        }
+
+
+
+        /* Centriranje sadržaja na stranici */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+            color: white;
+            flex-direction: column;
+        }
+
+        /* Stilizacija naslova */
+        h1 {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* Pretraživač (tekst kutija) */
+        .search-box {
+            position: relative;
+            width: 60%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            width: 65%;
+            padding: 15px;
+          
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            background-color: rgba(255, 255, 255, 0.8); /* Poluprozirna pozadina */
+            color: #333;
+        }
+
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(0, 0, 255, 0.7); /* Plavi okvir kad se fokusa */
+        }
+
+        /* Gumb za pretragu izvan okvira */
+        .search-button {
+            
+            padding: 12px 20px;
+            background-color: #1991b9; /* Svijetlo plava */
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+           
+        }
+
+        .search-button:hover {
+            background-color: #389ede; /* Svjetlija plava kad je hover */
+        }
+        #dobrodosli{
+           color: rgb(255, 255, 255);
+           text-shadow: -4px 4px 8px #535A73;
+           /* background-color: rgba(237, 237, 237, 0.25); */
+           border-radius: 20px;
+           font-size: 25px;
+           width: 90%;
+        }
+        #naslov{
+            font-size: 25px;
+            padding-top: 4px;
+            margin: 0;
+        }
+        #navigacija{
+
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        #profil{
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+          
+        }
+        #natpis a{
+            color: white;
+            text-decoration: none;
+            padding-right: 5px;
+        }
+        #profilna img{
+            width: 30px; /* Slika zauzima 100% širine kontejnera */
+            height: 30px; /* Slika zauzima 100% visine kontejnera */
+            object-fit: cover;
+        }
+        #gridvju{
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0 0.5rem;
+            margin-top: 0.25rem;
+        }
+        #gridvju div {
+            width: 35%;                /* Svaki element zauzima približno polovinu širine */
+            aspect-ratio: 1;           /* Održava kvadratni oblik */
+            background-color:rgba(237, 237, 237, 0.5); /* Svijetlo plava boja za primjer */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            color: white;
+            border-radius: 10px;       /* Zaobljene ivice za ljepši izgled */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Blaga sjena */
+        }
+        #search-dugme{
+            display: flex;
+            margin-right: 27px;
+        }
+        
+        footer {
+          
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            
+        }
+        
+        #kupovina{
+            display: flex;
+            justify-content: center;
+
+        }
+        #kupikartu{
+            height: 60px;
+            width: 270px;
+            padding: 12px 20px;
+            background-color: #1991b9; /* Svijetlo plava */
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+        .ikonica img {
+            width: 60px;
+            height: 60px;
+        }
+        .ikonica a {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            text-decoration: none;
+
+        }
+        .naziv {
+            display: flex;
+            justify-content: space-around;
+            text-decoration: none;
+        }
+
+        /* Responsivnost za manje uređaje */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 30px;
+            }
+
+            .search-option{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+                width: 90%;
+                margin-bottom: 40px;
+            }
+            .search-box {
+                width: 70%;
+                /* left:-30px; */
+            }
+
+            .search-button {
+                 right: -50px; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="naslov">JGP Sarajevo</h1>
+        <nav id = "profil">   
+           <div id="natpis"> <a href="/profil.html">Moj Profil</a></div> 
+           <div id="profilna"><img src="img/avatar.png"></div>
+
+        </nav>
+    </header>
+
+    <main>
+       
+
+        <div class="container">
+            <h1 id="dobrodosli">Dobrodošli u sistem javnog prijevoza</h1>
+            
+            <!-- Pretraživač za linije -->
+            <div class="search-option">
+                <div id="search-input">
+                    <input type="text" class="search-input" id="line-search" placeholder="Pretraži linije..."></div>
+               <div id = "search-dugme">
+                   <button class="search-button" onclick="searchLines()">Pretraži</button>
+                </div>
+            </div>
+        </div>
+        
+
+
+    </main>
+
+    <div id = "navigacija">
+        <div id = "gridvju">
+            
+            <div class = "ikonica">
+                <a href="/linije.html"> 
+                    <img src="/img/bus.png" alt="BusIkonica">
+                    <div class = "naziv">Linije </div>
+                </a>
+            </div>
+            <div class = "ikonica">
+                <a href="/stajalista.html">
+                    <img src="/img/pin.png" alt="PinIkonica">
+                    <div class = "naziv">Stajališta</div>
+                </a>
+            </div>
+            <div class = "ikonica">
+                <a href="/red-voznje.html">
+                    <img src="/img/schdjule.png" alt="ScheduleIkonica">
+                    <div class = "naziv">Red Vožnje</div>
+                </a>
+            </div><div class = "ikonica">
+                <a href="/znamenitosti.html">
+                    <img src="/img/map.png" alt="MapIkonica">
+                    <div class = "naziv">Znamenitosti</div>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="kupovina">
+        <button id="kupikartu">Kupi kartu</button>
+    </div>
+
+    <script>
+        // Funkcija za pretragu linija (možeš dodati stvarnu logiku pretrage)
+        function searchLines() {
+            const searchValue = document.getElementById('line-search').value;
+            if (searchValue) {
+                alert('Pretražujete liniju: ' + searchValue);
+                // Ovdje možeš dodati stvarnu logiku za pretragu linija
+            } else {
+                alert('Molimo unesite broj linije');
+            }
+        }
+    </script>
+</body>
+</html>
