@@ -5,31 +5,320 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javni Gradski Prevoz Sarajevo - Red Vožnje</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body { 
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            position: relative; /* Omogućava pozicioniranje pseudo-elementa */
+            overflow: hidden; 
+        }
+        body::before {
+            content: ''; /* Dodaj pseudo-element */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1500px;
+            background-image: url('/img/sarajevo.jpg'); /* URL slike */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 1; /* Postavi željenu opacitet */
+            z-index: -1; /* Postavi sloj iza ostalog sadržaja */
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            height: 35px;
+        }
+        #naslov{
+            font-size: 25px;
+            padding-top: 4px;
+            margin: 0;
+        }
+        #profil{
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+        #natpis a{
+            color: white;
+            text-decoration: none;
+            padding-right: 5px;
+        }
+        #profilna img{
+            width: 30px; /* Slika zauzima 100% širine kontejnera */
+            height: 30px; /* Slika zauzima 100% visine kontejnera */
+            object-fit: cover;
+        }
+        #homeLinkas{
+            text-decoration: none;
+            color: white;
+        }
+        #dobrodosli{
+            display: flex;
+            justify-content: space-around;
+           color: rgb(255, 255, 255);
+           text-shadow: -4px 4px 8px #535A73;
+           /* background-color: rgba(237, 237, 237, 0.25); */
+           border-radius: 20px;
+           font-size: 25px;
+        }
+        #linijaPlaceholder {
+            display: flex;
+            justify-content: space-around;
+           color: rgb(255, 255, 255);
+           text-shadow: -4px 4px 8px #535A73;
+           /* background-color: rgba(237, 237, 237, 0.25); */
+           border-radius: 20px;
+           font-size: 18px;
+        }
+        #tablica {
+            width: 90%;
+            margin: 0 1rem;
+            padding: 1rem;
+            border-radius: 30px;
+            color: white;
+            text-align: justify;
+            background: linear-gradient(#89ccf183, #1fa0e583 ), rgba(0,0,0,0.2);
+            overflow: auto;
+            overflow-x: hidden;
+        }
+        tr{
+            overflow: auto;
+        }
+        th, td {
+            font-size: 18px;
+            font-weight: 400;
+            width: 30%;
+            padding: 3px;
+            text-align: center;
+            word-wrap: break-word;
+            white-space: normal;
+            border-left: 1px solid white;
+        }
+        th:first-child, td:first-child{
+            border-left: none;
+        }
+        #konstraksn {
+            display: flex;
+            justify-content: center;
+            font-size: 40px;
+            color: rgb(222, 15, 15);
+            margin: 1rem 1rem;
+            padding: 1rem;
+            text-align: center;
+            background: linear-gradient(#89ccf183, #1fa0e583 ), rgba(0,0,0,0.2);
+            border-radius: 30px;
+        }
+        #SmjerIkonica{
+            width: 30px; /* Slika zauzima 100% širine kontejnera */
+            height: 30px; /* Slika zauzima 100% visine kontejnera */
+            object-fit: cover;
+            align-items: center;
+            background-color: rgba(237, 237, 237, 0.8);
+            border-radius: 50%;
+            padding: 0.5rem;
+        }
+        #linija{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            padding: 3px 0;
+            margin: 0 3rem;
+            border-radius: 30px;
+            margin-bottom: 1rem;
+            background: linear-gradient(#89ccf183, #1fa0e583 ), rgba(0,0,0,0.2);
+        }
+        #prviRed th{
+            font-weight: 600;
+        }
+        
+    </style>
 </head>
 <body>
     <header>
-        <h1>Javni Gradski Prevoz Sarajevo</h1>
-        <nav>
-            <ul>
-                <li><a href="/index.html">Početna</a></li>
-                <li><a href="/linije.html">Gradske i Prigradske Linije</a></li>
-                <li><a href="/stajalista.html">Autobuska Stajališta</a></li>
-                <li><a href="/red-voznje.html">Red Vožnje</a></li>
-                <li><a href="/znamenitosti.html">Znamenitosti</a></li>
-                <li><a href="/profil.html">Moj Profil</a></li>
-            </ul>
+        <a id = "homeLinkas" href="/index.html"><h1 id="naslov">JGP Sarajevo</h1></a>
+        <nav id = "profil">   
+           <div id="natpis"> <a href="/profil.html">Moj Profil</a></div> 
+           <div id="profilna"><a href="/profil.html"><img src="img/avatar.png" ></a></div>
+
         </nav>
     </header>
 
     <main>
         <section>
-            <h2>Red Vožnje</h2>
-            <p>Detaljan pregled redova vožnje.</p>
+            <h1 id = "dobrodosli">Red Vožnje</h1>
+            <div id = "linija">
+                <h1 id = "linijaPlaceholder">Baščaršija - Hrasnica</h1>
+                <img id = "SmjerIkonica" src="/img/smjer.png" alt="PromjeniLinijuIkonica" onclick="switchDirection()">
+            </div>
+
+                <table id = "tablica">
+                    <tr id = "prviRed">
+                        <th>Radni dani</th>
+                        <th>Subota</th>
+                        <th>Nedjelja</th>
+                    </tr>
+                    <tr>
+                        <th id = "time1">8:00</th>
+                        <th id = "time2">8:00</th>
+                        <th id = "time3">8:00</th>
+                    </tr>
+                    <tr>
+                        <th id = "time4">8:30</th>
+                        <th id = "time5">8:30</th>
+                        <th></th>
+
+                    </tr>
+                    <tr>
+                        <th id = "time6">9:00</th>
+                        <th id = "time7">9:00</th>
+                        <th id = "time8">9:00</th>
+
+                    </tr>
+                    <tr>
+                        <th id = "time9">9:30</th>
+                        <th id = "time10">9:30</th>
+                        <th></th>
+
+                    </tr>
+                    <tr>
+                        <th id = "time11">10:00</th>
+                        <th id = "time12">10:00</th>
+                        <th id = "time13">10:00</th>
+
+                    </tr>
+                    <tr>
+                        <th id = "time14">10:30</th>
+                        <th id = "time15">10:30</th>
+                        <th></th>
+
+                    </tr>
+                    <tr>
+                        <th id = "time16">11:00</th>
+                        <th id = "time17">11:00</th>
+                        <th id = "time18">11:00</th>
+
+                    </tr>
+                    <tr>
+                        <th id = "time19">11:30</th>
+                        <th id = "time20">11:30</th>
+                        <th></th>
+
+                    </tr>
+                </table>
+            
         </section>
+        <!-- <section>
+            <p id = "konstraksn">
+                UNDER CONSTRUCTION
+            </p>
+        </section> -->
     </main>
 
-    <footer>
+    <!-- <footer>
         <p>&copy; 2025 Javni Gradski Prevoz Sarajevo</p>
-    </footer>
+    </footer> -->
+    <script>
+        let currentDirection = true;
+
+        function switchDirection() {
+        const routeElement = document.getElementById('linijaPlaceholder');
+        const time1Element = document.getElementById('time1');
+        const time2Element = document.getElementById('time2');
+        const time3Element = document.getElementById('time3');
+
+        const time4Element = document.getElementById('time4');
+        const time5Element = document.getElementById('time5');
+
+        const time6Element = document.getElementById('time6');
+        const time7Element = document.getElementById('time7');
+        const time8Element = document.getElementById('time8');
+
+        const time9Element = document.getElementById('time9');
+        const time10Element = document.getElementById('time10');
+
+        const time11Element = document.getElementById('time11');
+        const time12Element = document.getElementById('time12');
+        const time13Element = document.getElementById('time13');
+        
+        const time14Element = document.getElementById('time14');
+        const time15Element = document.getElementById('time15');
+
+        const time16Element = document.getElementById('time16');
+        const time17Element = document.getElementById('time17');
+        const time18Element = document.getElementById('time18');
+
+        const time19Element = document.getElementById('time19');
+        const time20Element = document.getElementById('time20');
+        
+        if (currentDirection) {
+            routeElement.textContent = 'Hrasnica - Baščaršija';
+            time1Element.textContent = '8:15';
+            time2Element.textContent = '8:15';
+            time3Element.textContent = '8:15';
+
+            time4Element.textContent = '8:45';
+            time5Element.textContent = '8:45';
+
+            time6Element.textContent = '9:15';
+            time7Element.textContent = '9:15';
+            time8Element.textContent = '9:15';
+
+            time9Element.textContent = '9:45';
+            time10Element.textContent = '9:45';
+
+            time11Element.textContent = '10:15';
+            time12Element.textContent = '10:15';
+            time13Element.textContent = '10:15';
+
+            time14Element.textContent = '10:45';
+            time15Element.textContent = '10:45';
+
+            time16Element.textContent = '11:15';
+            time17Element.textContent = '11:15';
+            time18Element.textContent = '11:15';
+
+            time19Element.textContent = '11:45';
+            time20Element.textContent = '11:45';
+
+        } else {
+            routeElement.textContent = 'Baščaršija - Hrasnica';
+            time1Element.textContent = '8:00';
+            time2Element.textContent = '8:00';
+            time3Element.textContent = '8:00';
+
+            time4Element.textContent = '8:30';
+            time5Element.textContent = '8:30';
+
+            time6Element.textContent = '9:00';
+            time7Element.textContent = '9:00';
+            time8Element.textContent = '9:00';
+
+            time9Element.textContent = '9:30';
+            time10Element.textContent = '9:30';
+
+            time11Element.textContent = '10:00';
+            time12Element.textContent = '10:00';
+            time13Element.textContent = '10:00';
+
+            time14Element.textContent = '10:30';
+            time15Element.textContent = '10:30';
+
+            time16Element.textContent = '11:00';
+            time17Element.textContent = '11:00';
+            time18Element.textContent = '11:00';
+
+            time19Element.textContent = '11:30';
+            time20Element.textContent = '11:30';
+        }
+        
+        currentDirection = !currentDirection; // Toggle the direction
+        }
+    </script>
 </body>
 </html>
