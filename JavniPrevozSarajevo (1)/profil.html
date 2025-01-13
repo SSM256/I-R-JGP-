@@ -13,15 +13,42 @@
     background-color: #f4f4f9;
     display: flex;
     flex-direction: column;
-
-   
+    position:relative;
     height: 100vh;
+    overflow: hidden; 
+    }
+    body::before {
+            content: ''; /* Dodaj pseudo-element */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1500px;
+            background-image: url('/img/sarajevo.jpg'); /* URL slike */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 1; /* Postavi željenu opacitet */
+            z-index: -1; /* Postavi sloj iza ostalog sadržaja */
+        }
+    main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
+    h2{
+        text-align: center;
+        color: white;
+        text-shadow: -4px 4px 8px #535A73;
+        
+    }
     .profile-container {
-    width: 90%;
+
+    width: 80%;
+   
     max-width: 400px;
-    background: #fff;
+    background: rgba(237, 237, 237, 0.8);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -39,13 +66,15 @@
     border-radius: 50%; /* Okrugla slika */
     object-fit: cover;
     margin-bottom: 10px;
-    border: 3px solid #416df1;
+    border: 3px solid  #1991b9;
 }
 
 .profile-name {
     font-size: 22px;
     margin: 5px 0;
     color: #333;
+    text-align: left;
+    
 }
 
 .profile-info {
@@ -63,10 +92,11 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Blaga sjenka za efekt */
 }
 
-#profil{
+        #profil{
             font-size: 16px;
             display: flex;
             align-items: center;
+    
           
         }
         #natpis a{
@@ -78,8 +108,9 @@
             width: 30px; /* Slika zauzima 100% širine kontejnera */
             height: 30px; /* Slika zauzima 100% visine kontejnera */
             object-fit: cover;
+            margin-left: 7px;
         }
- #naslov{
+        #naslov{
             font-size: 25px;
             padding-top: 4px;
             margin: 0;
@@ -100,8 +131,8 @@
     <header>
         <h1 id="naslov">JGP Sarajevo</h1>
         <nav id = "profil">   
-           <div id="natpis"> <a href="/profil.html">Moj Profil</a></div> 
-           <div id="profilna"><a href="/profil.html"><img src="img/avatar.png" ></a></div>
+           <div id="natpis"> <a href="/index.html">Nazad</a></div> 
+           <div id="profilna"><a href="/index.html"><img src="img/home.png" ></a></div>
 
         </nav>
     </header>
@@ -113,13 +144,14 @@
         <div class="profile-container">
             <div class="profile-header">
                 <img src="/img/osoba.jpg" alt="Profilna slika" class="profile-picture">
-                <h1 class="profile-name">Ime: Amar</h1>
-                <h1 class="profile-name">Prezime: Muharemović</h1>
+                <h1 class="profile-name">Ime: Adnan</h1>
+                <h1 class="profile-name">Prezime: Adnanović</h1>
             </div>
             <div class="profile-info">
-                <p><strong>Adresa stanovanja:</strong> Mostar, BiH</p>
-                <p><strong>Kategorija:</strong> Studentski</p>
-                <p><strong>Zona prevoza:</strong> Zona 1</p>
+                <p><strong>Adresa stanovanja:</strong> Čekaluša 17</p>
+                <p><strong>Opština:</strong> Centar</p>
+                <p><strong>Kategorija:</strong> Studenti</p>
+                <p><strong>Zona prevoza:</strong> Zona A</p>
             </div>
         </div>
     </main>

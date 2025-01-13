@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javni Gradski Prevoz Sarajevo - Gradske i Prigradske Linije</title>
+    <title>Javni Gradski Prevoz Sarajevo</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="script.js" defer></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            height: 200vh;
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            height: 35px;
+        }
+        h1{
+            font-size: 25px;
         }
         .container {
             padding: 20px;
@@ -60,91 +69,63 @@
         .line-details-btn:hover {
             background-color: #c0c0c0;
         }
-        #map {
-            height: 150px;
-            width: 150px;
+        #profil{
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+    
+          
         }
-        #karta{
-            height: 150px;
-            width: 150px;
+        #natpis a{
+            color: white;
+            text-decoration: none;
+            padding-right: 5px;
         }
-        
+        #profilna img{
+            width: 30px; /* Slika zauzima 100% širine kontejnera */
+            height: 30px; /* Slika zauzima 100% visine kontejnera */
+            object-fit: cover;
+            margin-left: 7px;
+        }
+        #naslov{
+            font-size: 25px;
+            padding-top: 4px;
+            margin: 0;
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            height: 35px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Javni Gradski Prevoz Sarajevo</h1>
-        <nav>
-            <ul>
-                <li><a href="/index.html">Početna</a></li>
-                <li><a href="/linije.html">Gradske i Prigradske Linije</a></li>
-                <li><a href="/stajalista.html">Autobuska Stajališta</a></li>
-                <li><a href="/red-voznje.html">Red Vožnje</a></li>
-                <li><a href="/znamenitosti.html">Znamenitosti</a></li>
-                <li><a href="/profil.html">Moj Profil</a></li>
-            </ul>
+        <h1 id="naslov">JGP Sarajevo</h1>
+        <nav id = "profil">   
+           <div id="natpis"> <a href="/index.html">Nazad</a></div> 
+           <div id="profilna"><a href="/index.html"><img src="img/home.png" ></a></div>
+
         </nav>
     </header>
 
     <main>
-      
-<div class="container">
-    <h1>Linije Javnoga Prijevoza</h1>
-    <div id="line-container">
-        <ul id="line-list" class="line-list">
-            <!-- Linije će biti dinamički dodane ovdje -->
-        </ul>
-    </div>
-</div>
+        
+    
+        <section id="ruta">
+            <h2>Ruta linije</h2>
+            <div id="map">Mapa se trenutno učitava...</div>
+        </section>
 
-<section id="karta">
-    <h2>Znamenitosti</h2>
-    <div id="map">Mapa se trenutno učitava...</div>
-</section>
- </main>
+        
+    </main>
 
     <footer>
         <p>&copy; 2025 Javni Gradski Prevoz Sarajevo</p>
     </footer>
 
     <script>
-        // Primjer podataka linija (možeš ih zamijeniti stvarnim podacima)
-        const lines = [
-            { number: '1', name: 'Centar - Ilidža' },
-            { number: '2', name: 'Centar - Novi Grad' },
-            { number: '3', name: 'Grbavica - Baščaršija' },
-            { number: '4', name: 'Buca Potok - Nedžarići' }
-        ];
-    
-        // Funkcija za generisanje liste linija
-        function generateLineList() {
-            const lineListElement = document.getElementById('line-list');
-            lineListElement.innerHTML = ''; // Očisti prethodne linije
-    
-            lines.forEach(line => {
-                const listItem = document.createElement('li');
-                listItem.classList.add('line-item');
-                listItem.innerHTML = `
-                    <div class="line-number">${line.number}</div>
-                    <div class="line-name">${line.name}</div>
-                    <button class="line-details-btn" onclick="viewLineDetails('${line.number}')">Pogledaj Detalje</button>
-                `;
-                lineListElement.appendChild(listItem);
-            });
-        }
-    
-        // Funkcija koja prikazuje detalje linije
-        function viewLineDetails(lineNumber) {
-            alert('Pogledaj detalje za liniju broj: ' + lineNumber);
-            // Ovdje možeš dodati logiku za prikaz detalja linije
-        }
-    
-        // Pozovi funkciju za generisanje linija prilikom učitavanja stranice
-        window.onload = generateLineList;
-
-
-        
-    
         document.addEventListener("DOMContentLoaded", function () {
             
             const map = L.map('map').setView([43.8563, 18.4131], 13); // Sarajevo coordinates
@@ -183,7 +164,14 @@
             L.polyline(route, { color: 'blue' }).addTo(map)
                 .bindPopup("Ruta autobusa");
             });
+            const lines = [
+            { number: '1', name: 'Centar - Ilidža' },
+            { number: '2', name: 'Centar - Novi Grad' },
+            { number: '3', name: 'Grbavica - Baščaršija' },
+            { number: '4', name: 'Buca Potok - Nedžarići' }
+        ];
     
+
     </script>
-    </body>
+</body>
 </html>
