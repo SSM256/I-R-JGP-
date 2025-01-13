@@ -18,7 +18,7 @@
     height: 100vh;
     }
 
-.profile-container {
+    .profile-container {
     width: 90%;
     max-width: 400px;
     background: #fff;
@@ -36,10 +36,10 @@
 .profile-picture {
     width: 120px;
     height: 120px;
-    border-radius: 50%;
+    border-radius: 50%; /* Okrugla slika */
     object-fit: cover;
     margin-bottom: 10px;
-    border: 3px solid #4c7caf;
+    border: 3px solid #416df1;
 }
 
 .profile-name {
@@ -49,7 +49,7 @@
 }
 
 .profile-info {
-    text-align: left;
+    text-align: left; /* Poravnanje teksta na lijevu stranu */
     margin-top: 20px;
 }
 
@@ -57,6 +57,10 @@
     font-size: 18px;
     color: #555;
     margin: 10px 0;
+    padding: 10px;
+    background: #f0f0f0; /* Pozadina za pravougaonik */
+    border-radius: 10px; /* Zaobljeni rubovi pravougaonika */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Blaga sjenka za efekt */
 }
 
 #profil{
@@ -108,7 +112,7 @@
         </section>
         <div class="profile-container">
             <div class="profile-header">
-                <img src="profilna-slika.jpg" alt="Profilna slika" class="profile-picture">
+                <img src="/img/osoba.jpg" alt="Profilna slika" class="profile-picture">
                 <h1 class="profile-name">Ime: Amar</h1>
                 <h1 class="profile-name">Prezime: Muharemović</h1>
             </div>
