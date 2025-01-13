@@ -270,11 +270,11 @@
                 <div id="search-input">
                     <input type="text" class="search-input" id="line-search" placeholder="Pretraži linije..."></div>
                <div id = "search-dugme">
-                   <button class="search-button" onclick="searchLines()">Pretraži</button>
+                   <button class="search-button" onclick="searchLines('${line.number}')">Pretraži</button>
                 </div>
             </div>
         </div>
-        
+       
 
 
     </main>
@@ -295,9 +295,9 @@
                 </a>
             </div>
             <div class = "ikonica">
-                <a href="/red-voznje.html">
-                    <img src="/img/schdjule.png" alt="ScheduleIkonica">
-                    <div class = "naziv">Red vožnje</div>
+                <a href="/mojaKarta.html">
+                    <img src="/img/ticket.png" alt="ScheduleIkonica">
+                    <div class = "naziv">Moja karta</div>
                 </a>
             </div><div class = "ikonica">
                 <a href="/znamenitosti.html">
@@ -316,10 +316,10 @@
 
     <script>
         // Funkcija za pretragu linija (možeš dodati stvarnu logiku pretrage)
-        function searchLines() {
+        function searchLines(lineNumber) {
             const searchValue = document.getElementById('line-search').value;
             if (searchValue) {
-                alert('Pretražujete liniju: ' + searchValue);
+                window.location.href = 'mapa.html?line=' + lineNumber;
                 // Ovdje možeš dodati stvarnu logiku za pretragu linija
             } else {
                 alert('Molimo unesite broj linije');

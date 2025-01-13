@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moja Karta</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+
+/* Kontejner karte */
+.ticket-container {
+    width: 90%;
+    max-width: 400px;
+    background: #ffffffbb;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Naslov stranice */
+.ticket-container h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* QR sekcija */
+.qr-section {
+    margin: 20px 0;
+}
+
+.qr-code {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid #1991b9;
+    border-radius: 10px;
+}
+
+/* Informacije o karti */
+.ticket-info {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.ticket-info p {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+    padding: 10px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f93c;
+    display: flex;
+    flex-direction: column;
+    position:relative;
+    height: 100vh;
+    overflow: hidden; 
+    }
+    body::before {
+            content: ''; /* Dodaj pseudo-element */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1500px;
+            background-image: url('/img/semaLinija.jpg'); /* URL slike */
+            background-size:cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.5; /* Postavi željenu opacitet */
+            z-index: -1; /* Postavi sloj iza ostalog sadržaja */
+        }
+    main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h2{
+        text-align: center;
+        color: white;
+        text-shadow: -4px 4px 8px #535A73;
+        
+    }
+  
+        #profil{
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+    
+          
+        }
+        #natpis a{
+            color: white;
+            text-decoration: none;
+            padding-right: 5px;
+        }
+        #profilna img{
+            width: 30px; /* Slika zauzima 100% širine kontejnera */
+            height: 30px; /* Slika zauzima 100% visine kontejnera */
+            object-fit: cover;
+            margin-left: 7px;
+        }
+        #naslov{
+            font-size: 25px;
+            padding-top: 4px;
+            margin: 0;
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            height: 35px;
+            background-color: #1991b9;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        #mojaKarta{
+            background-color: rgba(255, 255, 255, 0.588);
+            color:black;
+            height: 60px;
+            text-align: center;
+            align-content: center;
+        
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="naslov">JGP Sarajevo</h1>
+        <nav id = "profil">   
+           <div id="natpis"> <a href="/index.html">Nazad</a></div> 
+           <div id="profilna"><a href="/index.html"><img src="img/home.png" ></a></div>
+
+        </nav>
+    </header>
+    <h1 id="mojaKarta">Moja Karta</h1>
+    <div class="ticket-container">
+        <div class="qr-section">
+            <img src="/img/QRcode.svg" alt="QR Kôd Karte" class="qr-code">
+        </div>
+        <div class="ticket-info">
+            <p><strong>Vrijeme plaćanja:</strong> <span id="payment-time">12.01.2025 14:30</span></p>
+            <p><strong>Zona prevoza:</strong> <span id="transport-zone">Zona 2</span></p>
+        </div>
+       
+    </div>
+</body>
+</html>

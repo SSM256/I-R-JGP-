@@ -9,6 +9,11 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
     <script src="script.js" defer></script>
     <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
         #map {
             height: 500px;
             width: 100%;
@@ -21,6 +26,9 @@
         }
         h1{
             font-size: 25px;
+        }
+        h2{
+            text-align: center;
         }
         .container {
             padding: 20px;
@@ -98,6 +106,33 @@
             justify-content: space-around;
             height: 35px;
         }
+        .search-button {
+            display: block;
+            margin-left: 50%;
+            transform: translate(-50%);
+            flex-direction: row;
+            padding: 12px 20px;
+            background-color: #1991b9; /* Svijetlo plava */
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100px;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .search-button a{
+            
+            color: white;
+            border: none;
+           text-decoration: none;
+            cursor: pointer;
+            text-align: center;
+        
+        }
+        .search-button:hover {
+            background-color: #389ede; /* Svjetlija plava kad je hover */
+        }
     </style>
 </head>
 <body>
@@ -114,8 +149,12 @@
         
     
         <section id="ruta">
-            <h2>Ruta linije</h2>
+            <h2>Baščaršija - Hrasnica</h2>
+              <div class="search-button">
+                <a href="/red-voznje.html">Red vožnje</a>
+              </div>
             <div id="map">Mapa se trenutno učitava...</div>
+          
         </section>
 
         
@@ -149,7 +188,23 @@
                 { lat: 43.852613, lng: 18.384698, name: 'Socijalno' },
                 { lat: 43.8515551, lng: 18.378341, name: 'Dolac Malta' },
                 { lat: 43.850493, lng: 18.372020, name: 'Čengić Vila' },
-                { lat: 43.849267, lng: 18.366295, name: 'Otoka Okretnica' }
+                { lat: 43.849267, lng: 18.366295, name: 'Otoka Okretnica' },
+                { lat: 43.848230, lng: 18.359318, name: 'Alipašin most' },
+                { lat: 43.847342, lng: 18.353487, name: 'RTV' },
+                { lat: 43.846330, lng: 18.346802, name: 'Alipašino polje' },
+                { lat: 43.845258, lng: 18.339821, name: 'Nedžarići' },
+                { lat: 43.844268, lng: 18.333858, name: 'Avaz' },
+                { lat: 43.842963, lng: 18.328576, name: 'Stup' },
+                { lat: 43.837633, lng: 18.317305, name: 'Energoinvest' },
+                { lat: 43.831239, lng: 18.308269, name: 'Terminal Ilidža' },
+                { lat: 43.824568, lng: 18.318494, name: 'Butmirska cesta A' },
+                { lat: 43.821070, lng: 18.315044, name: 'Stadion Butmir' },
+                { lat: 43.819747, lng: 18.308397, name: 'Koledž' },
+                { lat: 43.816116, lng: 18.308296, name: 'Sokolovići' },
+                { lat: 43.811309, lng: 18.309784, name: 'Cvjećara' },
+                { lat: 43.798712, lng: 18.313697, name: 'Dom kulture' },
+                { lat: 43.796482, lng: 18.319327, name: 'Obdanište' },
+                { lat: 43.794119, lng: 18.325045, name: 'Okretnica Famos' },
             ];
 
 
