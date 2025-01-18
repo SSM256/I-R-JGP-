@@ -270,7 +270,7 @@
                 <div id="search-input">
                     <input type="text" class="search-input" id="line-search" placeholder="Pretraži linije..."></div>
                <div id = "search-dugme">
-                   <button class="search-button" onclick="searchLines('${line.number}')">Pretraži</button>
+                   <button class="search-button" onclick="searchLines('${line.search}')">Pretraži</button>
                 </div>
             </div>
         </div>
@@ -319,7 +319,7 @@
         function searchLines(lineNumber) {
             const searchValue = document.getElementById('line-search').value;
             if (searchValue) {
-                window.location.href = 'mapa.html?line=' + lineNumber;
+                window.location.href = 'mapa.html?id=' + searchValue;
                 // Ovdje možeš dodati stvarnu logiku za pretragu linija
             } else {
                 alert('Molimo unesite broj linije');

@@ -139,7 +139,7 @@
     <header>
         <h1 id="naslov">JGP Sarajevo</h1>
         <nav id = "profil">   
-           <div id="natpis"> <a href="/index.html">Nazad</a></div> 
+           <div id="natpis"> <a href="/linije.html">Nazad</a></div> 
            <div id="profilna"><a href="/index.html"><img src="img/home.png" ></a></div>
 
         </nav>
@@ -149,7 +149,7 @@
         
     
         <section id="ruta">
-            <h2>Baščaršija - Hrasnica</h2>
+            <h2 id="naziv"></h2>
               <div class="search-button">
                 <a href="/red-voznje.html">Red vožnje</a>
               </div>
@@ -190,15 +190,25 @@ function loadRoute(lineId) {
 
     L.polyline(coordinates, { color: 'blue' }).addTo(map);
     map.fitBounds(coordinates);
-    
+
     coordinates.forEach(stop => {
                 L.marker([stop.lat, stop.lng]).addTo(map)
                     .bindPopup(`<b>${stop.name}</b>`);
             });
+
+    
+        
+            const itemNaziv=document.getElementById("naziv");
+            itemNaziv.textContent = lines[lineId - 1].name;
+
+ 
    
 }
 
 
+ 
+
+  
 
 // Kada se stranica učita
 document.addEventListener('DOMContentLoaded', () => {
