@@ -130,52 +130,7 @@
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            
-            const map = L.map('map').setView([43.8563, 18.4131], 13); // Sarajevo coordinates
-
-            // Add OpenStreetMap tiles
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '© OpenStreetMap contributors'
-            }).addTo(map);
-
-            // Add bus stops as markers
-            const busStops = [
-                { lat: 43.8599, lng: 18.4328, name: 'Vijećnica' },
-                { lat: 43.860001, lng: 18.431400, name: 'Baščaršija' },
-                { lat: 43.859734, lng: 18.425302, name: 'Katedrala' },
-                { lat: 43.858907, lng: 18.419840, name: 'Banka' },
-                { lat: 43.858635, lng: 18.413778, name: 'Park' },
-                { lat: 43.8556094, lng: 18.408310, name: 'Marijin dvor' },
-                { lat: 43.855615, lng: 18.397652, name: 'Kampus' },
-                { lat: 43.854128, lng: 18.391920, name: 'Pofalići' },
-                { lat: 43.852613, lng: 18.384698, name: 'Socijalno' },
-                { lat: 43.8515551, lng: 18.378341, name: 'Dolac Malta' },
-                { lat: 43.850493, lng: 18.372020, name: 'Čengić Vila' },
-                { lat: 43.849267, lng: 18.366295, name: 'Otoka Okretnica' },
-                { lat: 43.848230, lng: 18.359318, name: 'Alipašin most' },
-                { lat: 43.847342, lng: 18.353487, name: 'RTV' },
-                { lat: 43.846330, lng: 18.346802, name: 'Alipašino polje' },
-                { lat: 43.845258, lng: 18.339821, name: 'Nedžarići' }
-
-
-
-            ];
-
-
-            busStops.forEach(stop => {
-                L.marker([stop.lat, stop.lng]).addTo(map)
-                    .bindPopup(`<b>${stop.name}</b>`);
-            });
-
-            // Draw route line
-            const route = busStops.map(stop => [stop.lat, stop.lng]);
-
-            L.polyline(route, { color: 'blue' }).addTo(map)
-                .bindPopup("Ruta autobusa");
-            });
-           
+       
     
         // Funkcija za generisanje liste linija
         function generateLineList() {
@@ -188,18 +143,18 @@
                 listItem.innerHTML = `
                     <div class="line-number">${line.number}</div>
                     <div class="line-name">${line.name}</div>
-                    <button class="line-details-btn" onclick="viewLineDetails('${line.number}')">Pogledaj Detalje</button>
+                    <button class="line-details-btn" onclick="viewLineDetails('${line.id}')">Pogledaj Detalje</button>
                 `;
                 lineListElement.appendChild(listItem);
             });
         }
     
         // Funkcija koja prikazuje detalje linije
-        function viewLineDetails(lineNumber) {
+        function viewLineDetails(line) {
             //alert('Pogledaj detalje za liniju broj: ' + lineNumber);
-            window.location.href = 'mapa.html?line=' + lineNumber;
+            window.location.href = '/mapa.html?id=' + line;
         }
-    
+
         // Pozovi funkciju za generisanje linija prilikom učitavanja stranice
         window.onload = generateLineList;
 

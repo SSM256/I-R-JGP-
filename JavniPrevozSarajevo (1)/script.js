@@ -8,13 +8,13 @@ const stajalista = [
 ];
 
 const lines = [
-    { number: 'T3', name: 'Baščaršija-Ilidža' },
-    { number: 'T1', name: 'Baščaršija-Ž.Stanica' },
-    { number: '101', name: 'Otoka-Trg Austrije' },
-    { number: '27E', name: 'Baščaršija-Hrasnica' },
-    { number: '23a', name: 'Dom Armije-Koševsko brdo' },
-    { number: '23b', name: 'Dom Armije-Koševsko brdo' },
-    { number: '23c', name: 'Dom Armije-Koševsko brdo' },
+    { id:'1', number: 'T3', name: 'Baščaršija-Ilidža' },
+    { id:'2', number: 'T1', name: 'Baščaršija-Ž.Stanica' },
+    { id:'3', number: '101', name: 'Otoka-Trg Austrije' },
+    { id:'4', number: '27E', name: 'Baščaršija-Hrasnica' },
+    { id:'5', number: '23a', name: 'Dom Armije-Koševsko brdo' },
+    { id:'6', number: '23b', name: 'Dom Armije-Koševsko brdo' },
+    { id:'7', number: '23c', name: 'Dom Armije-Koševsko brdo' },
 ];
 
 const routes = {
