@@ -51,6 +51,8 @@ const lines = [
     { id:'4', number: '14', name: 'Dom Armije - Podhrastovi' },
     { id:'5', number: '23a', name: 'Park - Jagomir' },
     { id:'6', number: '107', name: 'Dobrinja - Jezero' },
+    { id:'7', number: '18', name: 'Drvenija - Pofalići' },
+
    
 ];
 
@@ -165,6 +167,24 @@ const routes = {
         { lat: 43.866565, lng: 18.412342, name: 'Ciglane M' },
         { lat: 43.872479, lng: 18.412067, name: 'Stadion Koševo' },
         { lat: 43.876210, lng: 18.412754, name: 'Jezero' },
+    ],
+
+    7: [
+       
+        { lat: 43.856166, lng:  18.423605, name: 'Drvenija' },
+        { lat: 43.855632,  lng:  18.419459, name: 'Čobanija' },
+        { lat: 43.855421,  lng:  18.412743, name: 'Terazija' },
+        { lat:43.852509,  lng: 18.404274, name: 'Kovačići' },
+        { lat: 43.849837,  lng:  18.396203, name: 'Zagrebačka' },
+        { lat:43.849233, lng: 18.394359, name: 'Grbavička' },
+        { lat: 43.855658,   lng:  18.392129, name: 'Ekonomska škola' },
+        { lat: 43.859717,  lng:  18.390719, name: 'Fabrika duhana' },
+
+        { lat:43.862150,  lng: 18.388144, name: 'Varnica' },
+
+        { lat: 43.861171,   lng:  18.387919, name: 'Humska' },
+        { lat: 43.862492,  lng:  18.386689, name: 'Donji Pofalići' },
+        { lat: 43.862146,  lng:  18.385337, name: 'Gornji Pofalići' },        
     ]
 
 };
