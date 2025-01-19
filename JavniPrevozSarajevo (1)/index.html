@@ -339,50 +339,8 @@
     </div>
 
     <script>
-        // Funkcija za pretragu linija (možeš dodati stvarnu logiku pretrage)
-        function searchLines() {
-            const searchValue = document.getElementById('line-search').value;
-            if (searchValue) {
-                let searchVal = searchValue.toLowerCase().trim().replace(/^-+|-+$/g, '').replace(/\s/g, '').replace(/š/g, 's').replace(/đ/g, 'dj').replace(/č/g, 'c').replace(/ć/g, 'c').replace(/ž/g, 'z');
-
-                switch (searchVal) {
-                    case '1':
-                    case 'bascarsijahrasnica':
-                    case 'hrasnicabascarsija':
-                        searchVal = 1; break;
-
-                    case 'bascarsijailidza':
-                    case 'ilidzabascarsija':
-                        searchVal = 2; break;
-
-                    case 'ilidzahrasnica':
-                    case 'hrasnicailidza':
-                        searchVal = 3; break;
-
-                    case 'domarmijepodhrastovi':
-                    case 'podhrastovidomarmije':
-                        searchVal = 4; break;
-                    
-                    case 'parkjagomir':
-                    case 'jagomirpark':
-                        searchVal = 5; break;
-                    
-                    case 'dobrinjajezero':
-                    case 'jezerodobrinja':
-                        searchVal = 6; break;
-                    
-                    default: searchVal = 99; break;
-                }
-                if (searchVal == 99) {
-                    alert('Trenutno ne postoji ta linija', 'Info');
-                }
-                else {
-                    window.location.href = 'mapa.html?id=' + searchVal;
-                }
-            } else {
-                alert('Molimo unesite broj linije');
-            }
-        }
+        
+        
     </script>
 </body>
 </html>

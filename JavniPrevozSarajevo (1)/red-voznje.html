@@ -11,7 +11,7 @@
             padding: 0;
             font-family: Arial, Helvetica, sans-serif;
             position: relative; /* Omogućava pozicioniranje pseudo-elementa */
-            overflow: hidden; 
+            overflow: visible; 
         }
         body::before {
             content: ''; /* Dodaj pseudo-element */
@@ -73,7 +73,7 @@
            text-shadow: -4px 4px 8px #535A73;
            /* background-color: rgba(237, 237, 237, 0.25); */
            border-radius: 20px;
-           font-size: 18px;
+           font-size: 14px;
         }
         #tablica {
             width: 90%;
@@ -145,7 +145,6 @@
         <nav id = "profil">   
            <div id="natpis"> <a href="/index.html">Početna</a></div> 
            <div id="profilna"><a href="/index.html"><img src="img/home.png" ></a></div>
-
         </nav>
     </header>
 
@@ -153,172 +152,81 @@
         <section>
             <h1 id = "dobrodosli">Red Vožnje</h1>
             <div id = "linija">
-                <h1 id = "linijaPlaceholder">Baščaršija - Hrasnica</h1>
+                <h1 id = "linijaPlaceholder"></h1>
                 <img id = "SmjerIkonica" src="/img/smjer.png" alt="PromjeniLinijuIkonica" onclick="switchDirection()">
             </div>
 
-                <table id = "tablica">
-                    <tr id = "prviRed">
+            <!-- Dynamic Table -->
+            <table id="tablica">
+                <thead>
+                    <tr id="prviRed">
                         <th>Radni dani</th>
                         <th>Subota</th>
                         <th>Nedjelja</th>
                     </tr>
-                    <tr>
-                        <th id = "time1">8:00</th>
-                        <th id = "time2">8:00</th>
-                        <th id = "time3">8:00</th>
-                    </tr>
-                    <tr>
-                        <th id = "time4">8:30</th>
-                        <th id = "time5">8:30</th>
-                        <th></th>
-
-                    </tr>
-                    <tr>
-                        <th id = "time6">9:00</th>
-                        <th id = "time7">9:00</th>
-                        <th id = "time8">9:00</th>
-
-                    </tr>
-                    <tr>
-                        <th id = "time9">9:30</th>
-                        <th id = "time10">9:30</th>
-                        <th></th>
-
-                    </tr>
-                    <tr>
-                        <th id = "time11">10:00</th>
-                        <th id = "time12">10:00</th>
-                        <th id = "time13">10:00</th>
-
-                    </tr>
-                    <tr>
-                        <th id = "time14">10:30</th>
-                        <th id = "time15">10:30</th>
-                        <th></th>
-
-                    </tr>
-                    <tr>
-                        <th id = "time16">11:00</th>
-                        <th id = "time17">11:00</th>
-                        <th id = "time18">11:00</th>
-
-                    </tr>
-                    <tr>
-                        <th id = "time19">11:30</th>
-                        <th id = "time20">11:30</th>
-                        <th></th>
-
-                    </tr>
-                </table>
-            
+                </thead>
+                <tbody id="timeTableBody"></tbody>
+            </table>
         </section>
-        <!-- <section>
-            <p id = "konstraksn">
-                UNDER CONSTRUCTION
-            </p>
-        </section> -->
     </main>
 
-    <!-- <footer>
-        <p>&copy; 2025 Javni Gradski Prevoz Sarajevo</p>
-    </footer> -->
     <script>
         let currentDirection = true;
 
+        // Define times for morning and afternoon
+        const times = {
+            'morning': ['6:00', '6:30', '7:00', '7:30', '8:00', '8:30', '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00', '23:30', '00:00', '00:30', ],
+            'afternoon': ['6:15', '6:45', '7:15', '7:45', '8:15', '8:45', '9:15', '9:45', '10:15', '10:45', '11:15', '11:45', '12:15', '12:45', '13:15', '13:45', '14:15', '14:45', '15:15', '15:45', '16:15', '16:45', '17:15', '17:45', '18:15', '18:45', '19:15', '19:45', '20:15', '20:45', '21:15', '21:45', '22:15', '22:45', '23:15', '23:45', '00:15', '00:45', ]
+        };
+
+        // Function to switch direction
         function switchDirection() {
-        const routeElement = document.getElementById('linijaPlaceholder');
-        const time1Element = document.getElementById('time1');
-        const time2Element = document.getElementById('time2');
-        const time3Element = document.getElementById('time3');
+            const routeElement = document.getElementById('linijaPlaceholder');
+            const timeElements = document.querySelectorAll('.time');
 
-        const time4Element = document.getElementById('time4');
-        const time5Element = document.getElementById('time5');
+            if (currentDirection) {
+                routeElement.textContent = reverseRoute;
+                updateTable(times.afternoon);
+            } else {
+                routeElement.textContent = route;
+                updateTable(times.morning);
+            }
 
-        const time6Element = document.getElementById('time6');
-        const time7Element = document.getElementById('time7');
-        const time8Element = document.getElementById('time8');
-
-        const time9Element = document.getElementById('time9');
-        const time10Element = document.getElementById('time10');
-
-        const time11Element = document.getElementById('time11');
-        const time12Element = document.getElementById('time12');
-        const time13Element = document.getElementById('time13');
-        
-        const time14Element = document.getElementById('time14');
-        const time15Element = document.getElementById('time15');
-
-        const time16Element = document.getElementById('time16');
-        const time17Element = document.getElementById('time17');
-        const time18Element = document.getElementById('time18');
-
-        const time19Element = document.getElementById('time19');
-        const time20Element = document.getElementById('time20');
-        
-        if (currentDirection) {
-            routeElement.textContent = 'Hrasnica - Baščaršija';
-            time1Element.textContent = '8:15';
-            time2Element.textContent = '8:15';
-            time3Element.textContent = '8:15';
-
-            time4Element.textContent = '8:45';
-            time5Element.textContent = '8:45';
-
-            time6Element.textContent = '9:15';
-            time7Element.textContent = '9:15';
-            time8Element.textContent = '9:15';
-
-            time9Element.textContent = '9:45';
-            time10Element.textContent = '9:45';
-
-            time11Element.textContent = '10:15';
-            time12Element.textContent = '10:15';
-            time13Element.textContent = '10:15';
-
-            time14Element.textContent = '10:45';
-            time15Element.textContent = '10:45';
-
-            time16Element.textContent = '11:15';
-            time17Element.textContent = '11:15';
-            time18Element.textContent = '11:15';
-
-            time19Element.textContent = '11:45';
-            time20Element.textContent = '11:45';
-
-        } else {
-            routeElement.textContent = 'Baščaršija - Hrasnica';
-            time1Element.textContent = '8:00';
-            time2Element.textContent = '8:00';
-            time3Element.textContent = '8:00';
-
-            time4Element.textContent = '8:30';
-            time5Element.textContent = '8:30';
-
-            time6Element.textContent = '9:00';
-            time7Element.textContent = '9:00';
-            time8Element.textContent = '9:00';
-
-            time9Element.textContent = '9:30';
-            time10Element.textContent = '9:30';
-
-            time11Element.textContent = '10:00';
-            time12Element.textContent = '10:00';
-            time13Element.textContent = '10:00';
-
-            time14Element.textContent = '10:30';
-            time15Element.textContent = '10:30';
-
-            time16Element.textContent = '11:00';
-            time17Element.textContent = '11:00';
-            time18Element.textContent = '11:00';
-
-            time19Element.textContent = '11:30';
-            time20Element.textContent = '11:30';
+            currentDirection = !currentDirection; // Toggle the direction
         }
-        
-        currentDirection = !currentDirection; // Toggle the direction
+
+        // Function to dynamically update the time table
+        function updateTable(newTimes) {
+            const tableBody = document.getElementById('timeTableBody');
+            tableBody.innerHTML = ''; // Clear previous table rows
+
+            newTimes.forEach((time, index) => {
+                const row = document.createElement('tr');
+
+                // Create time columns for each day (radni dani, subota, nedjelja)
+                for (let i = 0; i < 3; i++) {
+                    const cell = document.createElement('th');
+                    cell.classList.add('time');
+                    cell.textContent = time;
+                    row.appendChild(cell);
+                }
+
+                tableBody.appendChild(row);
+            });
         }
+
+        // URL query handling
+        const params = new URLSearchParams(window.location.search);
+        const route = params.get('route');
+        const parts = route.split(' - ').map(part => part.trim());
+        const reverseRoute = `${parts[1]} - ${parts[0]}`;
+        if (route) {
+            document.getElementById('linijaPlaceholder').textContent = route;
+        }
+
+        // Initial table update
+        updateTable(times.morning); // Initially load morning times
+
     </script>
 </body>
 </html>

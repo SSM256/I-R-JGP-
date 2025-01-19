@@ -168,7 +168,7 @@
         <section id="ruta">
             <h2 id="naziv"></h2>
               <div class="search-button">
-                <a href="/red-voznje.html">Red vožnje</a>
+                <a id="routeLink" href="/red-voznje.html?route=">Red vožnje</a>
               </div>
             <div id="map">Mapa se trenutno učitava...</div>
           
@@ -248,7 +248,20 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('ID linije nije proslijeđen.');
     }
 });
+document.addEventListener('DOMContentLoaded', function() {
+  // Dohvati elemente
+  const nazivElement = document.getElementById('naziv');
+  const routeLink = document.getElementById('routeLink');
+  
+  // Dodaj event listener na klik linka
+  routeLink.addEventListener('click', function(event) {
+    // Dohvati tekst iz H2 elementa
+    const naziv = nazivElement.textContent || nazivElement.innerText;
 
+    // Postavi href atribut sa novim URL-om koji uključuje naziv
+    routeLink.href = `/red-voznje.html?route=${encodeURIComponent(naziv)}`;
+  });
+});
     </script>
 </body>
 </html>
