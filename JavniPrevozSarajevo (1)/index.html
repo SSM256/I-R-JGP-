@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javni Gradski Prevoz Sarajevo - Početna</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
         /* Postavljanje pozadinske slike */
@@ -242,6 +243,35 @@
             width: 35px;
             height: 35px;
         }
+        .dropdown {
+    position: relative;
+    transform: translate(20%,-40%);
+    width: 65%; /* Prilagodi širini pretraživačkog inputa */
+    max-width: 400px;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.95); /* Poluprozirna bijela pozadina */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: none; /* Skriveno po defaultu */
+    z-index: 10;
+}
+
+.dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none; /* Bez linije na posljednjem elementu */
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0; /* Svijetlo siva kad se hovera */
+}
 
         /* Responsivnost za manje uređaje */
         @media (max-width: 600px) {
@@ -292,12 +322,21 @@
             <!-- Pretraživač za linije -->
             <div class="search-option">
                 <div id="search-input">
-                    <input type="text" class="search-input" id="line-search" placeholder="Pretraži linije..."></div>
+                    <input
+                        type="text"
+                        class="search-input"
+                        id="line-search"
+                        placeholder="Pretraži linije..."
+                        oninput="searchLines()"
+                        />
+                </div>
                <div id = "search-dugme">
                    <button class="search-button" onclick="searchLines()">Pretraži</button>
                 </div>
             </div>
         </div>
+        <div id="filtered-lines" class="dropdown"></div>
+
        
 
 
@@ -339,8 +378,38 @@
     </div>
 
     <script>
-        
-        
+   
+        function searchLines() {
+    const searchValue = document.getElementById("line-search").value.toLowerCase();
+    const filteredLines = lines.filter(line =>
+        line.name.toLowerCase().includes(searchValue)
+    );
+
+    // Prikaži rezultate u dropdown-u
+    const dropdown = document.getElementById("filtered-lines");
+    dropdown.innerHTML = ""; // Očisti prethodne rezultate
+    if (filteredLines.length > 0 && searchValue.trim() !== "") {
+        filteredLines.forEach(line => {
+            const item = document.createElement("div");
+            item.className = "dropdown-item";
+            item.textContent = line.name;
+            item.onclick = () => selectLine(line); // Klik na liniju
+            dropdown.appendChild(item);
+        });
+        dropdown.style.display = "block"; // Prikaži dropdown
+    } else {
+        dropdown.style.display = "none"; // Sakrij dropdown ako nema rezultata
+    }
+}
+
+function selectLine(line) {
+    window.location.href = `mapa.html?id=${line.id}`
+    
+    // Dodaj logiku preusmjeravanja ili prikaza linije
+    const dropdown = document.getElementById("filtered-lines");
+    dropdown.style.display = "none"; // Sakrij dropdown nakon odabira
+}
+
     </script>
 </body>
 </html>
