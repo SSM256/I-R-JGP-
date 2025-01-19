@@ -1,7 +1,3 @@
-console.log('JavaScript is connected!');
-
-
-
 const stajalista = [
     // STAJALISTE VIJECNICA
     { naziv: "Vijećnica", 
