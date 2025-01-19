@@ -80,10 +80,24 @@ main {
 
 .lines {
     margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
 }
-
+.linesDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.clock {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    transform: translate(-1%);
+    color: grey;
+}
 .line {
-    display: inline-block;
     margin: 5px 5px 0 0;
     padding: 5px 10px;
     background-color: #0078d4;
@@ -134,17 +148,43 @@ function prikaziStajalista(lista) {
     stajalistaLista.innerHTML = ""; // Očisti trenutni prikaz
 
     lista.forEach((stajaliste) => {
+        var i = 0;
         const li = document.createElement("li");
         li.innerHTML = `
             <h2>Stajalište: ${stajaliste.naziv}</h2>
             <div class="lines">
                 ${stajaliste.linije.map(linija => `
-                    <a href="/mapa.html?id=${linija.id}" class="line">${linija.naziv}</a>
-                `).join("")}
+                    <div class = "linesDetails">
+                        <a href="/mapa.html?id=${linija.id}" class="line">${linija.naziv}</a>
+                        <div class = "clock">
+                            ${getClockTime(linija.id)}
+                            </div>
+
+                    </div>
+                    `).join("")}
             </div>
         `;
         stajalistaLista.appendChild(li);
     });
+}
+
+getClockTime = (LinijaID) => {
+    console.log(LinijaID);
+    const now = new Date();
+    const minutes = now.getMinutes();
+    const roundedMinutes = Math.ceil(minutes / 15) * (15 + LinijaID + Math.random() * (60));
+
+    if (roundedMinutes === 60) {
+    now.setMinutes(0, 0, 0); // Reset minutes and seconds to 0
+    now.setHours(now.getHours() + 1); // Add 1 hour if rounding reaches the next hour
+    } else {
+    now.setMinutes(roundedMinutes, 0, 0); // Set the rounded minutes and reset seconds to 0
+    }
+
+
+    return now.toLocaleTimeString(undefined,  {
+                                        hour:"2-digit", minute:"2-digit", hour12: false
+                                    })
 }
 
 // Funkcija za pretraživanje stajališta
