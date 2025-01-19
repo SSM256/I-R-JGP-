@@ -123,8 +123,8 @@ main {
     <header>
         <h1 id="naslov">JGP Sarajevo</h1>
         <nav id = "profil">   
-           <div id="natpis"> <a href="/profil.html">Moj Profil</a></div> 
-           <div id="profilna"><a href="/profil.html"><img src="img/avatar.png" ></a></div>
+           <div id="natpis"> <a href="/index.html">Nazad</a></div> 
+           <div id="profilna"><a href="/index.html"><img src="img/home.png" ></a></div>
 
         </nav>
     </header>
@@ -169,7 +169,6 @@ function prikaziStajalista(lista) {
 }
 
 getClockTime = (LinijaID) => {
-    console.log(LinijaID);
     const now = new Date();
     const minutes = now.getMinutes();
     const roundedMinutes = Math.ceil(minutes / 15) * (15 + LinijaID + Math.random() * (60));
