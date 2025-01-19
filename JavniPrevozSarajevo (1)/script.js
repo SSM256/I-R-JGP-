@@ -31,6 +31,7 @@ const stajalista = [
         linije: [
         { id: 1, naziv: "27E" },
         { id: 2 , naziv: "T3" },
+        {id:8, naziv:"102"}
         ] 
     },
 
@@ -41,7 +42,13 @@ const stajalista = [
         ] 
     },
 
-    { naziv: "Ilidža", linije: [{ id: 3, naziv: "27" },] }
+    { naziv: "Ilidža", linije: [{ id: 3, naziv: "27" },] },
+    { naziv: "Ekonomska škola", linije: [{ id: 7, naziv: "18" },{ id: 9, naziv: "23" },] },
+    { naziv: "Kampus", linije: [{ id: 1, naziv: "27E" },{ id: 2, naziv: "T3" },{ id: 9, naziv: "23" },]},
+
+    
+
+
 ];
 
 const lines = [
@@ -52,6 +59,8 @@ const lines = [
     { id:'5', number: '23a', name: 'Park - Jagomir' },
     { id:'6', number: '107', name: 'Dobrinja - Jezero' },
     { id:'7', number: '18', name: 'Drvenija - Pofalići' },
+    {id:'8',number:'102',name:'Otoka - Jezero'},
+    {id:'9',number:'23',name:'Ž.Stanica - Rajlovac'}
 
    
 ];
@@ -158,7 +167,7 @@ const routes = {
         { lat: 43.841711, lng: 18.354246, name: 'Alipašino polje' },
         { lat: 43.844876, lng: 18.370212, name: 'Aneks' },
         { lat: 43.846107, lng: 18.374592, name: 'Hrasno I' },
-        { lat: 43.846970, lng: 18.380800, name: 'A. Šačerbegović' },
+        { lat: 43.846970, lng: 18.380800, name: 'A. Šačirbegović' },
         { lat: 43.847380, lng: 18.386357, name: 'Stadion Grbavica' },
         { lat: 43.850104, lng: 18.399580, name: 'Zagrebačka' },
         { lat: 43.852455, lng: 18.404334, name: 'Kovačići' },
@@ -185,7 +194,45 @@ const routes = {
         { lat: 43.861171,   lng:  18.387919, name: 'Humska' },
         { lat: 43.862492,  lng:  18.386689, name: 'Donji Pofalići' },
         { lat: 43.862146,  lng:  18.385337, name: 'Gornji Pofalići' },        
-    ]
+    ],
 
+    8: [
+
+        { lat: 43.847861,  lng: 18.367592, name: 'Otoka okretaljka' },
+        { lat: 43.848341,  lng: 18.373042, name: 'Čengić vila 2' },
+        { lat: 43.847194, lng:  18.373580, name: 'Bosmal' },
+        { lat: 43.848368,  lng: 18.380006, name: '' },
+        { lat: 43.846970, lng: 18.380800, name: 'A. Šačirbegović' },
+        { lat: 43.847380, lng: 18.386357, name: 'Stadion Grbavica' },
+        { lat: 43.850104, lng: 18.399580, name: 'Zagrebačka' },
+        { lat: 43.852455, lng: 18.404334, name: 'Kovačići' },
+        { lat: 43.855822, lng: 18.413311, name: 'Skenderija' },
+        { lat: 43.857044, lng: 18.412727, name: 'Hamze Hume' },
+        { lat: 43.866565, lng: 18.412342, name: 'Ciglane M' },
+        { lat: 43.872479, lng: 18.412067, name: 'Stadion Koševo' },
+        { lat: 43.876210, lng: 18.412754, name: 'Jezero' },     
+    ],
+    
+    9: [
+       
+        { lat:43.859205, lng:  18.423605, name: 'Ž.stanica' },
+        { lat: 43.855808,   lng:  18.4010949, name: '' },
+        { lat: 43.855615, lng: 18.397652, name: 'Kampus' },
+        { lat: 43.855658,   lng:  18.392129, name: 'Ekonomska škola' },
+        { lat: 43.859717,  lng:  18.390719, name: 'Fabrika duhana' },
+        { lat: 43.856453,  lng:  18.377840, name: 'Drinska' },
+        { lat:43.854301, lng: 18.366869, name: 'Rampa' },
+        { lat: 43.852998,   lng:  18.362361, name: 'Elektrotehnička' },
+        { lat: 43.852063,  lng:  18.355742, name: 'Dolačka' },
+        { lat: 43.851987, lng:  18.353010, name: 'Klesar' },  
+        { lat: 43.852069,  lng:  18.345000, name: 'Boljakov potok' },     
+        { lat: 43.852721, lng:  18.333987, name: 'Elektrotehna' },  
+        { lat: 43.854401,  lng:  18.328828, name: 'Briješće I' },     
+        { lat:43.862707,  lng: 18.316873, name: 'Sokolje' },     
+        { lat:43.868633,  lng:  18.311394, name: 'Rajlovac' },     
+
+
+
+    ],
 };
 
