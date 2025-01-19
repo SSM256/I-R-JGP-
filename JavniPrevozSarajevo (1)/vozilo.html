@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informacije o Vozilu</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="vozilo.js" defer></script>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f5f5f5;
+    overflow: hidden;
+}
+body::before {
+            content: ''; /* Dodaj pseudo-element */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-image: url('/img/sarajevo.jpg'); /* URL slike */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 1; /* Postavi željenu opacitet */
+            z-index: -1; /* Postavi sloj iza ostalog sadržaja */
+            overflow: hidden;
+        }
+
+
+
+
+h1 {
+    font-size: 25px;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+#natpis a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    margin-right: 15px;
+}
+
+#profilna img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    margin-left: 7px;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+   
+}
+
+#vehicle-info {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.814);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top:50%;
+    
+}
+
+h2 {
+    font-size: 24px;
+    color: #007bfd;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #007bfd;
+    color: white;
+    margin-top: 20px;
+}
+
+    </style>
+
+    
+</head>
+<body>
+
+    
+
+    <header>
+        <h1 id="naslov">JGP Sarajevo</h1>
+        <nav id="profil">   
+           <div id="natpis"><a href="/mapa.html">Nazad</a></div> 
+           <div id="profilna"><a href="/index.html"><img src="img/home.png" ></a></div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="vehicle-info">
+            <h2>Informacije o Vozilu</h2>
+            <div class="info-item">
+                <span>Gužva u vozilu:</span>
+                <span id="crowd-level"></span>
+            </div>
+            <div class="info-item">
+                <span>Temperatura u vozilu:</span>
+                <span id="temperature"></span>
+            </div>
+            <div class="info-item">
+                <span>Rampa za invalidska kolica:</span>
+                <span id="wheelchair-access"></span>
+            </div>
+        </section>
+    </main>
+
+<script>    
+    document.addEventListener('DOMContentLoaded', () => {
+    // Randomizirani podaci
+    const crowdLevels = ['Niska', 'Srednja', 'Visoka'];
+    const temperature = Math.floor(Math.random() * (30 - 15 + 1)) + 15; // Random temperatura od 15°C do 30°C
+    const wheelchairAccess = Math.random() > 0.5 ? 'Da' : 'Ne';
+
+    // Popunjavanje podataka u HTML-u
+    document.getElementById('crowd-level').textContent = crowdLevels[Math.floor(Math.random() * crowdLevels.length)];
+    document.getElementById('temperature').textContent = `${temperature}°C`;
+    document.getElementById('wheelchair-access').textContent = wheelchairAccess;
+});
+
+</script>
+
+</body>
+
+
+</html>

@@ -133,6 +133,23 @@
         .search-button:hover {
             background-color: #389ede; /* Svjetlija plava kad je hover */
         }
+
+        .marker-red {
+    background-color: red;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.marker-blue {
+    background-color: blue;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
     </style>
 </head>
 <body>
@@ -171,11 +188,7 @@ function getLineIdFromUrl() {
     return params.get('id'); // Dohvati vrijednost parametra "id"
 }
 
-// Funkcija za učitavanje rute
 function loadRoute(lineId) {
-    // Ovdje možeš zamijeniti sa stvarnim podacima za liniju
-    
-
     const coordinates = routes[lineId];
     
     if (!coordinates) {
@@ -183,28 +196,42 @@ function loadRoute(lineId) {
         return;
     }
 
-    
-
     const map = L.map('map').setView([43.8563, 18.4131], 13);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
+    // Crtanje linije rute
     L.polyline(coordinates, { color: 'blue' }).addTo(map);
     map.fitBounds(coordinates);
 
-    coordinates.forEach(stop => {
-                L.marker([stop.lat, stop.lng]).addTo(map)
-                    .bindPopup(`<b>${stop.name}</b>`);
+    // Generiraj nasumični indeks za marker
+    const randomIndex = Math.floor(Math.random() * coordinates.length);
+
+    // Postavi pinove za sva stajališta
+    coordinates.forEach((stop, index) => {
+        const markerOptions = {
+            color: index === randomIndex ? 'red' : 'blue', // Nasumični marker je crven, ostali su plavi
+        };
+
+        const marker = L.marker([stop.lat, stop.lng], {
+            icon: L.divIcon({ className: `marker-${markerOptions.color}` }),
+        }).addTo(map);
+
+        // Dodaj popup
+        marker.bindPopup(`<b>${stop.name}</b>`);
+
+        // Ako je marker crven, dodaj događaj za preusmjeravanje
+        if (index === randomIndex) {
+            marker.on('click', () => {
+                // Preusmjeravanje na vozilo.html s ID-jem linije i stajališta
+                window.location.href = `vozilo.html?lineId=${lineId}&stopId=${index}`;
             });
+        }
+    });
 
-    
-        
-            const itemNaziv=document.getElementById("naziv");
-            itemNaziv.textContent = lines[lineId - 1].name;
-
- 
-   
+    // Postavljanje naziva linije
+    const itemNaziv = document.getElementById("naziv");
+    itemNaziv.textContent = lines[lineId - 1].name;
 }
-
 
  
 

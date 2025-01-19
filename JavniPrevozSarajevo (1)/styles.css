@@ -31,3 +31,46 @@ footer {
     background-color: #f1f1f1;
     margin-top: 20px;
 }
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 35px;
+}
+
+
+
+/* Centriranje sadržaja na stranici */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    color: white;
+    flex-direction: column;
+}
+
+/* Stilizacija naslova */
+h1 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+#profilna img{
+    width: 30px; /* Slika zauzima 100% širine kontejnera */
+    height: 30px; /* Slika zauzima 100% visine kontejnera */
+    object-fit: cover;
+}
+#profil{
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+  
+}
+#natpis a{
+    color: white;
+    text-decoration: none;
+    padding-right: 5px;
+}

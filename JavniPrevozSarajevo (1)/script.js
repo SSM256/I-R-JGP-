@@ -1,24 +1,47 @@
 console.log('JavaScript is connected!');
+
+
+
 const stajalista = [
     // STAJALISTE VIJECNICA
     { naziv: "Vijećnica", 
         linije: [
             { id: 1, naziv: "27E" }, 
             { id: 2, naziv: "T3" }, 
-            { id: 5, naziv: "Linija 5" }
+           
         ] 
     },
     { naziv: "Park", 
         linije: [
             { id: 1, naziv: "27E" }, 
             { id: 2, naziv: "T3" }, 
-            { id:4 , naziv: "14" }
+            { id:4 , naziv: "14" },
+            { id:5 , naziv: "20" }
         ] 
     },
-    { naziv: "Ilidža", linije: [{ id: 3, naziv: "27" }, { id: 4, naziv: "Linija 4" }] },
-    { naziv: "Pofalići", linije: [{ id: 1, naziv: "Linija 1" }, { id: 3, naziv: "Linija 3" }] },
-    { naziv: "Avijatičarski Most", linije: [{ id: 7, naziv: "Linija 7" }, { id: 8, naziv: "Linija 8" }] },
-    { naziv: "Španjolski Trg", linije: [{ id: 2, naziv: "Linija 2" }, { id: 6, naziv: "Linija 6" }] }
+
+    { naziv: "Alipašina",
+         linije: [
+            { id: 4, naziv: "14" },
+             { id: 6, naziv: "107" }
+            ]
+     },
+
+    { naziv: "Otoka", 
+        linije: [
+        { id: 1, naziv: "27E" },
+        { id: 2 , naziv: "T3" },
+        ] 
+    },
+
+    { naziv: "Nedžarići", 
+        linije: [
+            { id: 2, naziv: "T3" },
+            { id: 1, naziv: "27E"}
+        ] 
+    },
+
+    { naziv: "Ilidža", linije: [{ id: 3, naziv: "27" },] }
 ];
 
 const lines = [
@@ -27,8 +50,8 @@ const lines = [
     { id:'3', number: '27', name: 'Ilidža - Hrasnica' },
     { id:'4', number: '14', name: 'Dom Armije - Podhrastovi' },
     { id:'5', number: '23a', name: 'Park - Jagomir' },
-    { id:'6', number: '23b', name: 'Dom Armije-Koševsko brdo' },
-    { id:'7', number: '23c', name: 'Dom Armije-Koševsko brdo' },
+    { id:'6', number: '107', name: 'Dobrinja - Jezero' },
+   
 ];
 
 const routes = {
@@ -123,7 +146,26 @@ const routes = {
         { lat: 43.887554, lng: 18.416209, name: 'Jagomir' },
        
     ],
-
+    6: [
+        { lat: 43.825442, lng: 18.351244, name: 'Dobrinja okretaljka' },
+        { lat: 43.825876, lng: 18.349998, name: 'Dobrinja trafo' },
+        { lat: 43.828997, lng: 18.342465, name: 'Dobrinja škola' },
+        { lat: 43.833575, lng: 18.345739, name: 'Dobrinja III' },
+        { lat: 43.835587, lng: 18.343965, name: 'Dobnrinja 5' },
+        { lat: 43.838830, lng: 18.343119, name: 'Alipašino polje II' },
+        { lat: 43.841711, lng: 18.354246, name: 'Alipašino polje' },
+        { lat: 43.844876, lng: 18.370212, name: 'Aneks' },
+        { lat: 43.846107, lng: 18.374592, name: 'Hrasno I' },
+        { lat: 43.846970, lng: 18.380800, name: 'A. Šačerbegović' },
+        { lat: 43.847380, lng: 18.386357, name: 'Stadion Grbavica' },
+        { lat: 43.850104, lng: 18.399580, name: 'Zagrebačka' },
+        { lat: 43.852455, lng: 18.404334, name: 'Kovačići' },
+        { lat: 43.855822, lng: 18.413311, name: 'Skenderija' },
+        { lat: 43.857044, lng: 18.412727, name: 'Hamze Hume' },
+        { lat: 43.866565, lng: 18.412342, name: 'Ciglane M' },
+        { lat: 43.872479, lng: 18.412067, name: 'Stadion Koševo' },
+        { lat: 43.876210, lng: 18.412754, name: 'Jezero' },
+    ]
 
 };
 
