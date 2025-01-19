@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sve linije - JGP Sarajevo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="script.js" defer></script>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+      
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            height: 35px;
+        }
+        h1{
+            font-size: 25px;
+        }
+        h2{
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .line-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .line-item {
+            background-color: #f2f2f2;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .line-item:hover {
+            background-color: #e0e0e0;
+        }
+        .line-number {
+            background-color: #007BFd; /* Svijetlo plava boja */
+            color: white;
+            padding: 10px;
+            border-radius: 15px;
+            width: 50px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .line-name {
+            flex-grow: 1;
+            margin-left: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .line-details-btn {
+            background-color: #d3d3d3; /* Svijetlo siva boja */
+            color: black;
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+        }
+        .line-details-btn:hover {
+            background-color: #c0c0c0;
+        }
+        #profil{
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+    
+          
+        }
+        #natpis a{
+            color: white;
+            text-decoration: none;
+            padding-right: 5px;
+        }
+        #profilna img{
+            width: 30px; /* Slika zauzima 100% širine kontejnera */
+            height: 30px; /* Slika zauzima 100% visine kontejnera */
+            object-fit: cover;
+            margin-left: 7px;
+        }
+        #naslov{
+            font-size: 25px;
+            padding-top: 4px;
+            margin: 0;
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            height: 35px;
+        }
+        .search-button {
+            display: block;
+            margin-left: 50%;
+            transform: translate(-50%);
+            flex-direction: row;
+            padding: 12px 20px;
+            background-color: #1991b9; /* Svijetlo plava */
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100px;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .search-button a{
+            
+            color: white;
+            border: none;
+           text-decoration: none;
+            cursor: pointer;
+            text-align: center;
+        
+        }
+        .search-button:hover {
+            background-color: #389ede; /* Svjetlija plava kad je hover */
+        }
+
+        .marker-red {
+    background-color: red;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.marker-blue {
+    background-color: blue;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+    </style>
+    
+</head>
+<body>
+    <header>
+        <h1 id="naslov">JGP Sarajevo</h1>
+        <nav id="profil">   
+            <div id="natpis"><a href="/index.html">Početna</a></div> 
+        </nav>
+    </header>
+
+    <main>
+        <section id="ruta">
+            <h2 id="naziv">Sve linije i njihove rute</h2>
+            <div id="map">Mapa se trenutno učitava...</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Javni Gradski Prevoz Sarajevo</p>
+    </footer>
+
+    <script>// Unaprijed definirane boje za linije (ili možemo generirati nasumične boje)
+        const colors = [
+            'red', 'blue', 'green',  'purple', 'pink', 'brown', 'cyan', 'magenta'
+        ];
+        
+        // Funkcija za generiranje boja za linije
+        function getColorForLine(index) {
+            return colors[index % colors.length];
+        }
+        
+        // Funkcija za prikaz svih linija i ruta
+        function loadAllRoutes() {
+            const map = L.map('map').setView([43.8563, 18.4131], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        
+            // Iteracija kroz sve linije
+            lines.forEach((line, index) => {
+                const coordinates = routes[line.id];
+                if (!coordinates) {
+                    console.error('Ruta nije pronađena za liniju:', line.name);
+                    return;
+                }
+        
+                // Boja rute
+                const color = getColorForLine(index);
+        
+                // Crtanje linije na mapi
+                L.polyline(coordinates, { color }).addTo(map);
+        
+                // Dodaj markere za stajališta
+                coordinates.forEach((stop, stopIndex) => {
+                    L.marker([stop.lat, stop.lng], {
+                        icon: L.divIcon({ className: 'marker-blue' }),
+                    })
+                    .addTo(map)
+                    .bindPopup(`<b>${stop.name}</b>`);
+                });
+            });
+        
+            // Centriraj mapu da prikazuje sve rute
+            const allCoordinates = lines.flatMap(line => routes[line.id]);
+            if (allCoordinates.length > 0) {
+                const bounds = L.latLngBounds(allCoordinates.map(coord => [coord.lat, coord.lng]));
+                map.fitBounds(bounds);
+            }
+        }
+        
+        // Kada se stranica učita
+        document.addEventListener('DOMContentLoaded', () => {
+            loadAllRoutes();
+        });
+        </script>
+</body>
+</html>

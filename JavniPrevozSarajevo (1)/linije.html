@@ -56,6 +56,14 @@
             font-weight: bold;
            
         }
+        .line-name1 {
+            flex-grow: 1;
+            margin-left: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            width:230px;
+           
+        }
         .line-details-btn {
             background-color: #d3d3d3; /* Svijetlo siva boja */
             color: black;
@@ -116,6 +124,11 @@
         
     <div class="container">
         <h1 style="color: black;">Linije Javnoga Prijevoza</h1>
+
+        <div class="line-item">
+        <div class="line-name1">Sve linije</div>
+        <a href="/sve_rute.html"><button class="line-details-btn" > Pogledaj Detalje</button></a>
+    </div>
         <div id="line-container">
             <ul id="line-list" class="line-list">
                 <!-- Linije će biti dinamički dodane ovdje -->
