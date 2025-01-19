@@ -8,8 +8,15 @@ const stajalista = [
             { id: 5, naziv: "Linija 5" }
         ] 
     },
+    { naziv: "Park", 
+        linije: [
+            { id: 1, naziv: "27E" }, 
+            { id: 2, naziv: "T3" }, 
+            { id:4 , naziv: "14" }
+        ] 
+    },
     { naziv: "Ilidža", linije: [{ id: 3, naziv: "27" }, { id: 4, naziv: "Linija 4" }] },
-    { naziv: "Rondoa", linije: [{ id: 1, naziv: "Linija 1" }, { id: 3, naziv: "Linija 3" }] },
+    { naziv: "Pofalići", linije: [{ id: 1, naziv: "Linija 1" }, { id: 3, naziv: "Linija 3" }] },
     { naziv: "Avijatičarski Most", linije: [{ id: 7, naziv: "Linija 7" }, { id: 8, naziv: "Linija 8" }] },
     { naziv: "Španjolski Trg", linije: [{ id: 2, naziv: "Linija 2" }, { id: 6, naziv: "Linija 6" }] }
 ];
@@ -18,8 +25,8 @@ const lines = [
     { id:'1', number: '27E', name: 'Baščaršija - Hrasnica' },
     { id:'2', number: 'T3', name: 'Baščaršija - Ilidža' },
     { id:'3', number: '27', name: 'Ilidža - Hrasnica' },
-    { id:'4', number: 'T3', name: 'Baščaršija - Ilidža' },
-    { id:'5', number: '23a', name: 'Dom Armije - Koševsko brdo' },
+    { id:'4', number: '14', name: 'Dom Armije - Podhrastovi' },
+    { id:'5', number: '23a', name: 'Park - Jagomir' },
     { id:'6', number: '23b', name: 'Dom Armije-Koševsko brdo' },
     { id:'7', number: '23c', name: 'Dom Armije-Koševsko brdo' },
 ];
@@ -91,5 +98,32 @@ const routes = {
         { lat: 43.796482, lng: 18.319327, name: 'Obdanište' },
         { lat: 43.794119, lng: 18.325045, name: 'Okretnica Famos' },
     ],
+
+    4: [
+        { lat: 43.857975, lng: 18.424441, name: 'Dom armije' },
+        { lat: 43.857689, lng: 18.419937, name: 'Pozorište' },
+        { lat: 43.856582, lng: 18.420216, name: 'Pošta' },
+        { lat: 43.859868, lng: 18.411959, name: 'Alipašina' },
+        { lat: 43.858648, lng: 18.413651, name: 'Park' },
+        { lat: 43.865083, lng: 18.413145, name: 'Medicinski Fakultet' },
+        { lat: 43.867143, lng: 18.416638, name: 'Bolnica Koševo' },
+        { lat: 43.866332, lng: 18.418107, name: 'Višnjik' },
+        { lat: 43.867155, lng: 18.421809, name: 'Studentski dom' },
+        { lat: 43.868645, lng: 18.423469, name: 'Podhrastovi' },
+    ],
+    5: [
+        { lat: 43.859151, lng: 18.414759, name: 'Park' },
+        { lat: 43.858883, lng: 18.414877, name: '' },
+        { lat: 43.858356, lng: 18.412138, name: '' },
+        { lat: 43.866565, lng: 18.412342 , name: 'Ciglane M' },
+        { lat: 43.872479, lng: 18.412067, name: 'Stadion Koševo' },
+        { lat: 43.876210, lng: 18.412754, name: 'Jezero' },
+        { lat: 43.880840, lng: 18.413918, name: 'Brekin potok' },
+        { lat: 43.884819, lng: 18.415899, name: 'D. Jagomir' },
+        { lat: 43.887554, lng: 18.416209, name: 'Jagomir' },
+       
+    ],
+
+
 };
 
