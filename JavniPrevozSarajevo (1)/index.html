@@ -105,6 +105,7 @@
            border-radius: 20px;
            font-size: 25px;
            width: 90%;
+
         }
         #naslov{
             font-size: 25px;
@@ -123,7 +124,13 @@
             font-size: 16px;
             display: flex;
             align-items: center;
+            gap: 15px;
           
+        }
+        #natpis img {
+            width: 30px; /* Slika zauzima 100% širine kontejnera */
+            height: 30px; /* Slika zauzima 100% visine kontejnera */
+            object-fit: cover;
         }
         #natpis a{
             color: white;
@@ -221,8 +228,20 @@
             
     
         }
-       
-      
+       .Tajtl {
+        display: flex;
+       }
+        #obavijestiAjkon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            padding-right: 10px;
+        }
+        #obavijestiAjkon img {
+            width: 35px;
+            height: 35px;
+        }
 
         /* Responsivnost za manje uređaje */
         @media (max-width: 600px) {
@@ -251,9 +270,13 @@
 </head>
 <body>
     <header>
-        <h1 id="naslov">JGP Sarajevo</h1>
+        <h1 id="naslov">JGP Sarajevo </h1>
         <nav id = "profil">   
-           <div id="natpis"> <a href="/profil.html">Moj Profil</a></div> 
+           <div id="natpis"> 
+            <a href="obavijesti.html" id = "obavijestiAjkon">
+                <img src="/img/notification-bell.png" alt="ObavestiIkonica">
+            </a>
+        </div> 
            <div id="profilna"><a href="/profil.html"><img src="img/avatar.png" ></a></div>
 
         </nav>
@@ -263,7 +286,8 @@
        
 
         <div class="container">
-            <h1 id="dobrodosli">Dobrodošli u sistem javnog prevoza</h1>
+                <h1 id="dobrodosli">Dobrodošli u sistem javnog gradskog prevoza </h1>
+                
             
             <!-- Pretraživač za linije -->
             <div class="search-option">

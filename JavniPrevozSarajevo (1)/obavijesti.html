@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javni Gradski Prevoz Sarajevo - Početna</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { 
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            position: relative; /* Omogućava pozicioniranje pseudo-elementa */
+            overflow: hidden;
+        }
+        body::before {
+            content: ''; /* Dodaj pseudo-element */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1500px;
+            background-image: url('/img/sarajevo.jpg'); /* URL slike */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 1; /* Postavi željenu opacitet */
+            z-index: -1; /* Postavi sloj iza ostalog sadržaja */
+        }
+        #naslov{
+            font-size: 25px;
+            padding-top: 4px;
+            margin: 0;
+        }
+        #profil{
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+        #natpis a{
+            color: white;
+            text-decoration: none;
+            padding-right: 5px;
+        }
+        #profilna img{
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+            margin-left: 7px;
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            height: 35px;
+        }
+        #dobrodosli{
+            color: rgb(255, 255, 255);
+            text-shadow: -4px 4px 8px #535A73;
+            font-size: 25px;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        #mejn {
+            padding: 0 1rem;
+        }
+        .znamenitost {
+            display: flex;
+            margin: 0.5rem;
+            background-color: rgba(162, 218, 255, 0.865);
+            border-radius: 1rem;
+            height: 7rem;
+            
+
+        }
+        .SectionImages{
+            width: auto;
+            height: 50%;
+            object-fit: cover;
+            display: flex;
+            justify-content: space-around;
+            align-self: center;
+            padding-left: 10px;
+            
+        }
+        .SectionDesc {
+            padding: 5px 1rem;
+            font-size: 11px;
+        }
+        .SectionTitle {
+            color: white;
+            text-align: right;
+            margin-bottom: 5px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .SectionText {
+            color: black;
+            font-size: 14px;
+            text-align: justify;
+        }
+        
+    </style>
+</head> 
+<body>
+    <header>
+        <h1 id="naslov">JGP Sarajevo </h1>
+        <nav id = "profil">   
+            <div id="natpis"> <a href="/index.html">Nazad</a></div> 
+            <div id="profilna"><a href="/index.html"><img src="img/home.png" ></a></div>
+ 
+         </nav>
+    </header>
+
+    <h1 id="dobrodosli">Obavijesti</h1>
+
+    <main id = "mejn">
+        <section class = "znamenitost">
+            <img class = "SectionImages" src="/img/alert.png" alt="VijecnicaImage">
+            <div class = "SectionDesc">
+                <div class = "SectionTitle"> Blokada - Baščaršija </div>
+                <div class = "SectionText">(22.01.2025) - Obavještavaju se korisnici JGP Sarajevo da će linija 15b saobraćati izmjenjenom rutom zbog radova na Baščaršiji.</div>
+            </div>
+        </section>
+        <section class = "znamenitost">
+            <img class = "SectionImages" src="/img/alert.png" alt="VijecnicaImage">
+            <div class = "SectionDesc">
+                <div class = "SectionTitle"> Udes - Otoka</div>
+                <div class = "SectionText">(18.01.2025) - Obavještavaju se korisnici JGP Sarajevo da je saobraćaj na Otoci usporen zbog udesa. </div>
+            </div>
+        </section>
+        <section class = "znamenitost">
+            <img class = "SectionImages" src="/img/info.png" alt="VijecnicaImage">
+            <div class = "SectionDesc">
+                <div class = "SectionTitle"> Otežani uslovi vožnje </div>
+                <div class = "SectionText"> Obavještavaju se korisnici JGP Sarajevo da je zbog padavina otežan saobraćaj.  </div>
+            </div>
+        </section>
+        <section class = "znamenitost">
+            <img class = "SectionImages" src="/img/info.png" alt="VijecnicaImage">
+            <div class = "SectionDesc">
+                <div class = "SectionTitle"> Kontrola autobusa </div>
+                <div class = "SectionText">Obavještavaju se građani da na vakat izvrše ovjeru i kupovinu karata jer Hamid kontrolor je danas došao na posao. </div>
+            </div>
+        </section>
+        
+    </main>
+
+</body>
+<script>
+    window.scrollTo(0, document.body);
+</script>
+</html>

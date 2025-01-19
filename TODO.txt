@@ -1,6 +1,4 @@
 // TODO
-	- Kretanje autobusa
-	- Podaci o vozilu i "gužvama"
-	- Znamenitosti i lokacije dovršit
+	- Podaci "gužvama"
 	- Pretraga na home pageu
-	- Obavijesti
+	
