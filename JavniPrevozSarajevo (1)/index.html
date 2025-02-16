@@ -321,14 +321,18 @@
             
             <!-- Pretraživač za linije -->
             <div class="search-option">
-                <div id="search-input">
+                <div id="search-input" >
                     <input
                         type="text"
                         class="search-input"
                         id="line-search"
                         placeholder="Pretraži linije..."
                         oninput="searchLines()"
+        
                         />
+                        <div id="error-message" style="display: none; color: red; font-weight: bold; margin-top: 10px;">
+                            Takva linija ne postoji!
+                        </div>
                 </div>
                <div id = "search-dugme">
                    <button class="search-button" onclick="searchLines()">Pretraži</button>
@@ -383,6 +387,7 @@
     const searchValue = document.getElementById("line-search").value.toLowerCase();
     const filteredLines = lines.filter(line =>
         line.name.toLowerCase().includes(searchValue)
+        
     );
 
     // Prikaži rezultate u dropdown-u
@@ -398,16 +403,29 @@
         });
         dropdown.style.display = "block"; // Prikaži dropdown
     } else {
-        dropdown.style.display = "none"; // Sakrij dropdown ako nema rezultata
+        if(document.getElementById("line-search").value){
+       // Sakrij dropdown ako nema rezultata
+       const item = document.createElement("div");
+       item.className = "dropdown-item";
+       
+       item.textContent = "Nema rezultata";
+       dropdown.appendChild(item);
+       dropdown.style.display = "block"; 
+        }else{
+            dropdown.style.display = "none";
+        }
+        
     }
 }
 
 function selectLine(line) {
+
     window.location.href = `mapa.html?id=${line.id}`
     
     // Dodaj logiku preusmjeravanja ili prikaza linije
     const dropdown = document.getElementById("filtered-lines");
     dropdown.style.display = "none"; // Sakrij dropdown nakon odabira
+ 
 }
 
     </script>

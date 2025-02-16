@@ -141,13 +141,14 @@
 </head>
 <body>
     <header>
-        <a id = "homeLinkas" href="/index.html"><h1 id="naslov">JGP Sarajevo</h1></a>
+        
         <nav id = "profil">   
-           <div id="natpis"> <a href="/index.html">Početna</a></div> 
+           <div id="profilna" onclick="goBack()"> <img src="img/kopija.png" ></div> 
+           <h1 id="naslov">JGP Sarajevo</h1>
            <div id="profilna"><a href="/index.html"><img src="img/home.png" ></a></div>
+
         </nav>
     </header>
-
     <main>
         <section>
             <h1 id = "dobrodosli">Red Vožnje</h1>
@@ -179,6 +180,9 @@
             'afternoon': ['6:15', '6:45', '7:15', '7:45', '8:15', '8:45', '9:15', '9:45', '10:15', '10:45', '11:15', '11:45', '12:15', '12:45', '13:15', '13:45', '14:15', '14:45', '15:15', '15:45', '16:15', '16:45', '17:15', '17:45', '18:15', '18:45', '19:15', '19:45', '20:15', '20:45', '21:15', '21:45', '22:15', '22:45', '23:15', '23:45', '00:15', '00:45', ]
         };
 
+        function goBack() {
+    window.history.back();
+}
         // Function to switch direction
         function switchDirection() {
             const routeElement = document.getElementById('linijaPlaceholder');

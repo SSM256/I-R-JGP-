@@ -111,13 +111,14 @@ footer {
     
 
     <header>
-        <h1 id="naslov">JGP Sarajevo</h1>
-        <nav id="profil">   
-           <div id="natpis"><a href="/mapa.html">Nazad</a></div> 
+        
+        <nav id = "profil">   
+           <div id="profilna" onclick="goBack()"> <img src="img/kopija.png" ></div> 
+           <h1 id="naslov">JGP Sarajevo</h1>
            <div id="profilna"><a href="/index.html"><img src="img/home.png" ></a></div>
+
         </nav>
     </header>
-
     <main>
         <section id="vehicle-info">
             <h2>Informacije o Vozilu</h2>
@@ -142,13 +143,19 @@ footer {
     const crowdLevels = ['Niska', 'Srednja', 'Visoka'];
     const temperature = Math.floor(Math.random() * (30 - 15 + 1)) + 15; // Random temperatura od 15°C do 30°C
     const wheelchairAccess = Math.random() > 0.5 ? 'Da' : 'Ne';
+    
 
     // Popunjavanje podataka u HTML-u
     document.getElementById('crowd-level').textContent = crowdLevels[Math.floor(Math.random() * crowdLevels.length)];
     document.getElementById('temperature').textContent = `${temperature}°C`;
     document.getElementById('wheelchair-access').textContent = wheelchairAccess;
+
+
 });
 
+function goBack() {
+    window.history.back();
+}
 </script>
 
 </body>

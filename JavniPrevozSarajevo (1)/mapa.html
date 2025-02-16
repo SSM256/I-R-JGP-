@@ -154,14 +154,14 @@
 </head>
 <body>
     <header>
-        <h1 id="naslov">JGP Sarajevo</h1>
+        
         <nav id = "profil">   
-           <div id="natpis"> <a href="/linije.html">Nazad</a></div> 
+           <div id="profilna" onclick="goBack()"> <img src="img/kopija.png" ></div> 
+           <h1 id="naslov">JGP Sarajevo</h1>
            <div id="profilna"><a href="/index.html"><img src="img/home.png" ></a></div>
 
         </nav>
     </header>
-
     <main>
         
     
@@ -233,7 +233,10 @@ function loadRoute(lineId) {
     itemNaziv.textContent = lines[lineId - 1].name;
 }
 
- 
+function goBack() {
+    window.history.back();
+}
+
 
   
 
